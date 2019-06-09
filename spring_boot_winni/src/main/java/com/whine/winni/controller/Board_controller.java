@@ -11,7 +11,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.whine.winni.repository.Board_repository;
 import com.whine.winni.vo.Board_vo;
 
-import sun.security.krb5.internal.PAEncTSEnc;
 
 
 @Controller

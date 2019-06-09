@@ -502,6 +502,7 @@
 				}, //end delete_data
 				update_hit:function(num){
 					var self=this;
+					//self.list[index].title = "zxcvzzzz";
 					$.ajax({
 						url:"http://localhost:8080/update_hit",
 						method:"get",
