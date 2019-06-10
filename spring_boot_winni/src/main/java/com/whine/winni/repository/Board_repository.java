@@ -15,7 +15,7 @@ import com.whine.winni.vo.Board_vo;
 public class Board_repository {
 
 	@Autowired
-	private Repository_interface repository_interface;
+	private BoardRepository_interface repository_interface;
 
 	public Board_vo select_one(int seq_no) {
 		return repository_interface.findById(seq_no).get();

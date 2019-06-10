@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.whine.winni.vo.Board_vo;
 
-public interface Repository_interface extends JpaRepository<Board_vo, Integer>{
+public interface BoardRepository_interface extends JpaRepository<Board_vo, Integer>{
 	
 	//order by date desc
 	List<Board_vo> findAllByOrderByDateDesc();

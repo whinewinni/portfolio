@@ -90,3 +90,19 @@ public class Board_vo {
 		return sb.toString();
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

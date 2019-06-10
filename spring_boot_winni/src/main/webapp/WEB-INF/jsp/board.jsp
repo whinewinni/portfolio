@@ -14,6 +14,10 @@
 				color: #212529;
 				overflow-x: hidden;
 			}
+			.btn-primary{
+				background-color: #78C2AD;
+				border-color: #78C2AD
+			}
 			header{
 				height: 100vh;
 				background-color: #78c2ad;
@@ -152,12 +156,26 @@
 			}
 			table#board_list tbody tr td button{
 				background-color: transparent;
-				border: none;
 				cursor: pointer;
+				border:none;
 			}
-			
+			table#board_list tbody tr td .collapse span{
+				display: block;
+				
+			}
 			table#board_list tbody tr td button#setting_btn{
 				float: right;
+			}
+			table#board_list tbody tr td #button_group{
+				float: right;
+			}
+			table#board_list tbody tr td #button_group button{
+				color: #78C2AD;
+				border-color: #78C2AD;
+			}
+			table#board_list tbody tr td #button_group button:hover{
+				background-color: #78C2AD;
+				color: white;
 			}
 			#pagination_wrap nav#pagination{
 				float: left;
@@ -168,15 +186,32 @@
 			}
 			#pagination_wrap button#write_btn{
 				background-color:#78C2AD;
-				border: none;
+				border-color:#78C2AD;
 				float: right;
 				margin: 0 auto;
 			}
-			
+			#pagination_wrap button#write_btn:hover{
+				background-color: white;
+				color: #78C2AD;
+				border-color: #78C2AD
+			}
 			
 			#write_modal .modal-content .modal-body .input-group.flex-nowrap{
 				margin-bottom: 10px
 			} 
+			
+			#write_modal .modal-content .modal-body input::placeholder{
+				color: #dee2e6
+			}
+			#write_modal .modal-content .modal-body textarea::placeholder{
+				color: #dee2e6
+			}
+			#write_modal .modal-content .modal-footer button:hover{
+				background-color: white;
+				color: #78C2AD;
+				border-color: #78C2AD
+				
+			}
 			
 			
 			p#lorem{
@@ -290,12 +325,12 @@
 							<div v-bind:id="'demo'+key" class="panel-collapse collapse" data-parent="#board_list">
 								<hr />
 								<span v-html="list[key].content">{{list[key].content}}</span>
-								<button @click="set_seq_id(list[key].seq_no, list[key].id , $event)" id="setting_btn" data-toggle="modal" data-target="#check_pwd_modal">
+								<!-- <button @click="set_seq_id(list[key].seq_no, list[key].id , $event)" id="setting_btn" data-toggle="modal" data-target="#check_pwd_modal">
 									<i class='fas'  v-bind:id="'demo'+key">&#xf2fe;</i>
-								</button>
-								<div v-if="is_active" id="button_group" style="border: 1px solid green">
-									<button type="button" class="btn btn-outline-primary">Modify</button>
-									<button @click="delete_data(list[key].seq_no)" type="button" class="btn btn-outline-primary">Delete</button>
+								</button> -->
+								<div id="button_group" style="border: 1px solid green" data-toggle="modal" data-target="#check_pwd_modal">
+									<button type="button" class="btn btn-outline-primary btn-sm">Modify</button>
+									<button @click="delete_data(list[key].seq_no)" type="button" class="btn btn-outline-primary btn-sm">Delete</button>
 								</div>
 							</div>	
 						</td>
@@ -439,7 +474,7 @@
 				check_seq:"",
 				check_id:"",
 
-				is_active:false
+				//is_active:false
 			},
 			mounted:function(){
 				this.board_list();
@@ -488,7 +523,7 @@
 				delete_data: function(seq){
 					var self=this;
 					$.ajax({
-						url:"http://localhost:8080/delete_data",
+						//url:"http://localhost:8080/delete_data",
 						method:"get",
 						data:{seq_no: seq},
 						success:function(data){
