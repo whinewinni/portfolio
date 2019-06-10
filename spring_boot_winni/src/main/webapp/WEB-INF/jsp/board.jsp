@@ -21,7 +21,6 @@
 			header{
 				height: 100vh;
 				background-color: #78c2ad;
-				
 			}
 			header nav h1{
 				float: left;
