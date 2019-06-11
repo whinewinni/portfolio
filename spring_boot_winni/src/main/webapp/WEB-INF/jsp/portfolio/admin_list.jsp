@@ -39,8 +39,13 @@
                 right: 0 
             }
             
-            #insert_modal #modal-body input[type=file]{
+            #insert_modal .modal-body input[type=file]{
             	background-color: red
+            }
+            #insert_modal .modal-body p{
+            	display: inline-block;
+            	color: red;
+            	font-size: small;
             }
 		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -96,9 +101,8 @@
 					<form action="" method="post" enctype="multipart/form-data" >
     				 	
     				 	<div class="modal-body">
-    							
     							<label>thumbnail</label>
-    							<p>thumnail image는 400*300 비율 유지</p>
+    							<p>* Save thumnail image at 400*300 ratio.</p>
     							<div class="input-group">
 									<label class="input-group-btn">
 										<span class="btn btn-danger btn-sm">

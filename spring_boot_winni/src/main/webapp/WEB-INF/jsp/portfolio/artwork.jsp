@@ -204,7 +204,6 @@
 			}
 			#mobile .card{
 				margin: 0 auto;
-				/* width: 50rem  -> 미디어쿼리로 변경 */
 			}
 			
 			
@@ -328,6 +327,7 @@
 		
 		<!-- admin button -->
 		<button onfocus="this.blur()" id="admin_btn" type="button" class="btn" data-toggle="modal" data-target="#admin_modal">Admin</button>
+		
 		<!-- admin login Modal Start -->
 		<div id="admin_modal" class="modal fade">
 			<div class="modal-dialog">
@@ -336,15 +336,15 @@
 						<h4 class="modal-title">Administration </h4>
 					</div>
 				 	<div class="modal-body">
-						<form action="" method="post">
-							<input type="text" class="form-control" id="admin_id" placeholder="Enter Administ id" name="id">
-							<input type="password" class="form-control" id="admin_pwd" placeholder="Enter password" name="pswd">
-							<button id="check_admin" type="submit" class="btn btn-danger">Administration Login</button>
+						<form action="/admin_login" method="post">
+							<input  name="id" type="text" class="form-control form-control-sm" id="admin_id" placeholder="Enter Administ id">
+							<input  name="pwd" type="password" class="form-control form-control-sm" id="admin_pwd" placeholder="Enter password">
+							<button id="check_admin" type="submit" class="btn btn-danger btn-sm">Administration Login</button>
 						</form>
 					</div>
 					<div class="modal-footer">
 						<p>* Only administrators are allowed to login.</p> 
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
 					</div>
 				</div>
 			</div>
