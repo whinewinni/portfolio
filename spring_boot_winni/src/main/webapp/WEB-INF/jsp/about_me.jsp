@@ -542,7 +542,7 @@
 			</div>
 		</div>
 		<footer>
-			<span>@ Copyright 2013 © Whine winni (Euni CHO) All Rights Reserved.</span>
+			<span>@ Copyright 2019 © Whine winni (Euni CHO) All Rights Reserved.</span>
 		</footer>
 
 
