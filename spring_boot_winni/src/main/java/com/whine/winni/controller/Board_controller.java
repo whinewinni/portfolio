@@ -33,6 +33,7 @@ public class Board_controller {
 		Board_vo vo=board_repository.select_one(1);
 		model.addAttribute("vo", vo);
 		System.out.println(vo);
+		
 		return "hello";
 	}
 	@RequestMapping(value="/portfolio_artwork")

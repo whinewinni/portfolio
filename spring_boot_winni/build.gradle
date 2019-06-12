@@ -19,9 +19,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-devtools'
 	implementation 'javax.servlet:jstl'
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+    implementation 'commins-io:commons-io:2.6'
+	implementation 'org.ahacpe.commons:commons-lang3:3.6'
+	
 	runtimeOnly 'mysql:mysql-connector-java'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-	implementation 'commins-io:commons-io'
-	implementation 'org.ahacpe.commons:commons-lang3'
+	
 }
