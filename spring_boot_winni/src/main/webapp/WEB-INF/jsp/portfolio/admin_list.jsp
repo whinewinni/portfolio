@@ -65,17 +65,17 @@
         		<li class="list-group-item">
         			<img class='list_img' src='img/artwork/m01.png'>
         			<div id="img_title">first img file</div>
-                    <button type="button" class="btn btn-danger btn-xs">Delete</button>
+                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
         		</li>
         		<li class="list-group-item">
         			<img class='list_img' src='img/artwork/m01.png'>
         			<div id="img_title">first img file</div>
-                    <button type="button" class="btn btn-danger btn-xs">Delete</button>
+                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
         		</li>
         		<li class="list-group-item">
         			<img class='list_img' src='img/artwork/m01.png'>
         			<div id="img_title">first img file</div>
-                    <button type="button" class="btn btn-danger btn-xs">Delete</button>
+                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
         		</li>
         		
 				<!-- while ($row = mysqli_fetch_array($artwork_list)) {
@@ -132,8 +132,8 @@
     					</div>
     					<div class="modal-footer">
     						<div id="btn_group2" class="btn-group" role="group">
-                                <button type="submit" class="btn btn-danger">Insert</button>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-danger btn-sm">Insert</button>
+                                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
                         	</div>
     					</div>
     					

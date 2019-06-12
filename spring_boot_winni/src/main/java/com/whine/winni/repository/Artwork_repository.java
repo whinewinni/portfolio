@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.whine.winni.vo.Admin_vo;
 import com.whine.winni.vo.Artwork_vo;
 
-
 @Repository
 public class Artwork_repository {
 
@@ -24,4 +23,5 @@ public class Artwork_repository {
 	}
 	
 
+	
 }
