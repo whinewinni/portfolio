@@ -67,9 +67,12 @@
 	        		<li class="list-group-item">
 	        			<img class='list_img' src='img/artwork/${artwork_vo.thumbnail}'>
 	        			<div id="img_title">${artwork_vo.title}</div>
-	                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
+	                    <button onclick="location.href='/delete_img?idx=${artwork_vo.idx}'" type="button" class="btn btn-danger btn-sm">
+	                    	Delete
+                    	</button>
 	        		</li>
 				</c:forEach>
+				
         		<li class="list-group-item">
         			<img class='list_img' src='img/artwork/m01.png'>
         			<div id="img_title">first img file</div>
@@ -81,14 +84,6 @@
                     <button type="button" class="btn btn-danger btn-sm">Delete</button>
         		</li>
         		
-				<!-- while ($row = mysqli_fetch_array($artwork_list)) {
-                        echo "<li class='list-group-item'>
-                                    <img class='list_img' src='$row[thumbnail]'>
-                                    <div id='img_title'>$row[title]</div>
-                                    <button onclick='location.href=\"admin_delete.php?idx=$row[idx]\"' type='button' class='btn btn-danger btn-xs'>Delete</button>
-                            </li>";
-                } -->
-                
 			</ul>
 			
 			<button id="insert_btn" type="button" class="btn btn-danger" onfocus="this.blur()" data-toggle="modal" data-target="#insert_modal">Insert</button>

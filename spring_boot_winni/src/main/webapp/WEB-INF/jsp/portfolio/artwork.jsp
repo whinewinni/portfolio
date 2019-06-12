@@ -142,6 +142,20 @@
 				border-radius: 50%;
 				background-color: red;
 			}
+			
+			#show_detail_img{
+				margin:3rem auto;
+				width: 50vw;
+				background-color: red;
+				text-align: center;
+			}
+			#show_detail_img img{
+				display: none;
+				width: 50%;
+				margin: 0 auto;
+			}
+			
+			
 			#renewal {
 				width: 70vw;
 				margin: 10% auto;
@@ -267,6 +281,21 @@
 			$(function() {
 				
 				$(".carousel-inner .carousel-item:first-child").addClass("active");
+
+				$(".carousel-inner .carousel-item a").click(function(){
+					$("#show_detail_img img").slideUp();
+					//var img_name="img/artwork/"+$(this).attr("href");
+					var img_name="img/artwork/"+$(this).data("src");
+
+					console.log($(this).data("src"));
+					
+					$("#show_detail_img img").attr("src", img_name);
+					$("#show_detail_img img").slideDown();
+				});
+				
+
+
+
 				
 			});
 		</script>
@@ -381,8 +410,8 @@
 					<!-- The slideshow -->
 					<div class="carousel-inner">
 						<c:forEach items="${artwork_list}" var="artwork_list">
-							<div class="carousel-item" style="background-color:green;">
-								<a href="#" style="background-color:fuchsia;">
+							<div id="slide" class="carousel-item" style="background-color:green;">
+								<a data-src="${artwork_list.imgfile}" href="#slide" style="background-color:fuchsia;">
 									<img src="img/artwork/${artwork_list.thumbnail}" alt="${artwork_list.title}">
 								</a>
 							</div>
@@ -397,11 +426,17 @@
 						<span class="carousel-control-next-icon"></span>
 					</a>
 				</div>
-								
 			</div>
 		</div>
+		
+		<div id="show_detail_img">
+			<img alt="slide image" src="">
+		</div>			
+		
 		<div id="renewal">
+		
 			<div id="logo_slide"></div>
+			
 			<div id="reneal_right">
 				<div id="spinner_grow">
 					<div class="spinner-grow text-danger" role="status"></div>

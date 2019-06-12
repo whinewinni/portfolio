@@ -228,7 +228,19 @@
 		<script>
 			$(function() {
 				
+
+
+				$(document).ready(function() {
+					
+					$("table#board_list tbody tr td > button").click(function(){
+						
+					});
+
+					
+				});
+
 				
+					
 			});
 			function collapse_hide(){
 				$(".collapse").collapse("hide");
@@ -537,6 +549,13 @@
 				update_hit:function(num){
 					var self=this;
 					//self.list[index].title = "zxcvzzzz";
+
+					/* var check_show=$("table#board_list tbody tr td > button").attr("aria-expanded");
+
+					if(check_show=="" || check_show==false){
+						console.log("check_showdfgdgfdgfgdfdfgdfg");
+					} */
+					
 					$.ajax({
 						url:"http://localhost:8080/update_hit",
 						method:"get",

@@ -85,6 +85,13 @@ public class Portfolio_controller {
 		return "redirect:/admin_page";
 	}
 	
+	@RequestMapping(value="/delete_img", method=RequestMethod.GET)
+	public String delete_artwork(int idx) {
+		artwork_repository.delete_artwork(idx);
+		return "redirect:/admin_page";
+	}
+	
+	
 }
 
 

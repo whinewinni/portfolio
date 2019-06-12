@@ -28,5 +28,8 @@ public class Artwork_repository {
 		return repository_interface.findAll();
 	}
 	
+	public void delete_artwork(int idx){
+		repository_interface.deleteById(idx);
+	}
 	
 }
