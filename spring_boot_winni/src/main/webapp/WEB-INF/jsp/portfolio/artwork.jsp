@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
@@ -265,6 +266,8 @@
 		<script>
 			$(function() {
 				
+				$(".carousel-inner .carousel-item:first-child").addClass("active");
+				
 			});
 		</script>
 	</head>
@@ -327,7 +330,6 @@
 		
 		<!-- admin button -->
 		<button onfocus="this.blur()" id="admin_btn" type="button" class="btn" data-toggle="modal" data-target="#admin_modal">Admin</button>
-		
 		<!-- admin login Modal Start -->
 		<div id="admin_modal" class="modal fade">
 			<div class="modal-dialog">
@@ -369,7 +371,8 @@
 				<div id="myCarousel" class="carousel slide" data-ride="carousel">
 	
 					<!-- Indicators -->
-						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<ul>
+						<li data-target="#myCarousel" data-slide-to="0"></li>
 						<li data-target="#myCarousel" data-slide-to="1"></li>
 						<li data-target="#myCarousel" data-slide-to="2"></li>
 						<li data-target="#myCarousel" data-slide-to="3"></li>
@@ -377,13 +380,13 @@
 					
 					<!-- The slideshow -->
 					<div class="carousel-inner">
-					
-					
-						<div class="carousel-item active">
-							<a href="">
-								<img src="upload/art_work01_thum.png">
-							</a>
-						</div>
+						<c:forEach items="${artwork_list}" var="artwork_list">
+							<div class="carousel-item" style="background-color:green;">
+								<a href="#" style="background-color:fuchsia;">
+									<img src="img/artwork/${artwork_list.thumbnail}" alt="${artwork_list.title}">
+								</a>
+							</div>
+						</c:forEach>	
 					</div>
 					
 					<!-- Left and right controls -->

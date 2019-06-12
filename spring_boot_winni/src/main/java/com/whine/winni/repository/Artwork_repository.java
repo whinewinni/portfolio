@@ -1,5 +1,7 @@
 package com.whine.winni.repository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -22,6 +24,9 @@ public class Artwork_repository {
 		repository_interface.save(artwork);
 	}
 	
-
+	public List<Artwork_vo> artwork_list(){
+		return repository_interface.findAll();
+	}
+	
 	
 }

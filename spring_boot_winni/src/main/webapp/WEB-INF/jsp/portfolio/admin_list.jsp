@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
@@ -62,11 +63,13 @@
     		<h1>Administration</h1>
 		
 			<ul id="ul_list" class="list-group">
-        		<li class="list-group-item">
-        			<img class='list_img' src='img/artwork/m01.png'>
-        			<div id="img_title">first img file</div>
-                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
-        		</li>
+				<c:forEach items="${artwork_vo}" var="artwork_vo">
+	        		<li class="list-group-item">
+	        			<img class='list_img' src='img/artwork/${artwork_vo.thumbnail}'>
+	        			<div id="img_title">${artwork_vo.title}</div>
+	                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
+	        		</li>
+				</c:forEach>
         		<li class="list-group-item">
         			<img class='list_img' src='img/artwork/m01.png'>
         			<div id="img_title">first img file</div>
@@ -107,10 +110,10 @@
 									<label class="input-group-btn">
 										<span class="btn btn-danger btn-sm">
 											Find file&hellip; 
-											<input name="thumbnail" type="file" style="display: none;" multiple>
+											<input name="thumbnail_file" type="file" style="display: none;" multiple>
 										</span>
 									</label>
-									<input type="text" class="form-control form-control-sm" readonly  placeholder="file name">
+									<input type="text" class="form-control form-control-sm" readonly>
 								</div>
     							
     							<label>Image</label>
@@ -119,10 +122,10 @@
 									<label class="input-group-btn">
 										<span class="btn btn-danger btn-sm">
 											Find file&hellip; 
-											<input name="imgfile" type="file" style="display: none;" multiple>
+											<input name="imgfile_file" type="file" style="display: none;" multiple>
 										</span>
 									</label>
-									<input type="text" class="form-control form-control-sm" readonly placeholder="file name">
+									<input type="text" class="form-control form-control-sm" readonly>
 								</div>
     							
     							<input type="text" class="form-control form-control-sm" id="title" name="title" placeholder="Enter title" name="title">

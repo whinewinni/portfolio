@@ -93,13 +93,13 @@ public class Artwork_vo {
 	public String toString() {
 		StringBuffer sb=new StringBuffer();
 		
-		sb.append("idx : ").append(idx).append("/n");
-		sb.append("thumbnail : ").append(thumbnail).append("/n");
-		sb.append("imgfile : ").append(imgfile).append("/n");
-		sb.append("title : ").append(title).append("/n");
-		sb.append("date : ").append(date).append("/n");
-		sb.append("tool : ").append(tool).append("/n");
-		sb.append("description : ").append(description).append("/n");
+		sb.append("idx : ").append(idx).append("\n");
+		sb.append("thumbnail : ").append(thumbnail).append("\n");
+		sb.append("imgfile : ").append(imgfile).append("\n");
+		sb.append("title : ").append(title).append("\n");
+		sb.append("date : ").append(date).append("\n");
+		sb.append("tool : ").append(tool).append("\n");
+		sb.append("description : ").append(description).append("\n");
 		
 		return sb.toString();
 		
