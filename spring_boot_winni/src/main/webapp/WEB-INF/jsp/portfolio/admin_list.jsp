@@ -98,7 +98,7 @@
 						<h4 class="modal-title">Administration</h4>
 					</div>
 					
-					<form action="" method="post" enctype="multipart/form-data" >
+					<form action="/insert_imgfile" method="post" enctype="multipart/form-data" >
     				 	
     				 	<div class="modal-body">
     							<label>thumbnail</label>
@@ -107,7 +107,7 @@
 									<label class="input-group-btn">
 										<span class="btn btn-danger btn-sm">
 											Find file&hellip; 
-											<input type="file" style="display: none;" multiple>
+											<input name="thumbnail" type="file" style="display: none;" multiple>
 										</span>
 									</label>
 									<input type="text" class="form-control form-control-sm" readonly  placeholder="file name">
@@ -119,16 +119,16 @@
 									<label class="input-group-btn">
 										<span class="btn btn-danger btn-sm">
 											Find file&hellip; 
-											<input type="file" style="display: none;" multiple>
+											<input name="imgfile" type="file" style="display: none;" multiple>
 										</span>
 									</label>
 									<input type="text" class="form-control form-control-sm" readonly placeholder="file name">
 								</div>
     							
-    							<input type="text" class="form-control form-control-sm" id="title" placeholder="Enter title" name="title">
-    							<input type="date" class="form-control form-control-sm" id="date" name="date">
-    							<input type="text" class="form-control form-control-sm" id="tool" placeholder="Enter tool" name="tool">
-    							<input type="text" class="form-control form-control-sm" id="description" placeholder="Enter description" name="description">
+    							<input type="text" class="form-control form-control-sm" id="title" name="title" placeholder="Enter title" name="title">
+    							<input type="date" class="form-control form-control-sm" name="date" id="date" name="date">
+    							<input type="text" class="form-control form-control-sm" name="tool" id="tool" placeholder="Enter tool" name="tool">
+    							<input type="text" class="form-control form-control-sm" name="description" id="description" placeholder="Enter description" name="description">
     					</div>
     					<div class="modal-footer">
     						<div id="btn_group2" class="btn-group" role="group">

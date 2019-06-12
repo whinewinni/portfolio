@@ -27,7 +27,8 @@ public class FileUploadController {
 		   System.out.println("11111111111111111111111111");
 	        String fileName = service.storeFile(file);
 	        
-	        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+	        String fileDownloadUri = ServletUriComponentsBuilder
+	        						.fromCurrentContextPath()
 	                                .path("/downloadFile/")
 	                                .path(fileName)
 	                                .toUriString();
