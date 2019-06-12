@@ -65,6 +65,7 @@ public class Portfolio_controller {
 		artwork_vo.setThumbnail(thumbnail_file_name);
 		artwork_vo.setImgfile(imgfile_name);
 		
+		
 		return "redirect:/admin_page";
 		
 	}
