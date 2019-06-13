@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
@@ -11,6 +12,7 @@
 		<style>
 			body{
 				color: #212529;
+				overflow-x: hidden;
 			}
 			header{
 				height: 100vh;

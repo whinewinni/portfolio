@@ -9,12 +9,21 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 		
 		<link rel="stylesheet" href="css/reset.css">
+		<!-- Bootstrap -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<!-- awesome font -->
+		<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 		<style>
             #list{
                 position: relative;
                 width: 50vw;
                 margin: 100px auto 0;
+            }
+            #list #title h1{
+            	float: left;
+            }
+            #list #title button{
+            	float:right;
             }
             #list #ul_list{
                 width: 50vw;
@@ -60,7 +69,12 @@
 	</head>
 	<body>
 		<div id="list">
-    		<h1>Administration</h1>
+			<div id="title">
+	    		<h1>Administration</h1>
+	    		<button onclick="location.href='/artwork'" class="btn btn-danger">
+	    			<i class='fas'>&#xf0a8;</i> Back to Portfolio page
+	    		</button>
+			</div>
 		
 			<ul id="ul_list" class="list-group">
 				<c:forEach items="${artwork_vo}" var="artwork_vo">
@@ -123,10 +137,10 @@
 									<input type="text" class="form-control form-control-sm" readonly>
 								</div>
     							
-    							<input type="text" class="form-control form-control-sm" id="title" name="title" placeholder="Enter title" name="title">
+    							<input type="text" class="form-control form-control-sm" id="title" name="title" placeholder="Enter title">
     							<input type="date" class="form-control form-control-sm" name="date" id="date" name="date">
-    							<input type="text" class="form-control form-control-sm" name="tool" id="tool" placeholder="Enter tool" name="tool">
-    							<input type="text" class="form-control form-control-sm" name="description" id="description" placeholder="Enter description" name="description">
+    							<input type="text" class="form-control form-control-sm" name="tool" id="tool" placeholder="Enter tool">
+    							<input type="text" class="form-control form-control-sm" name="description" id="description" placeholder="Enter description">
     					</div>
     					<div class="modal-footer">
     						<div id="btn_group2" class="btn-group" role="group">

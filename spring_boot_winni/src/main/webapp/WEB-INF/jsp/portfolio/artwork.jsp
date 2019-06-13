@@ -146,13 +146,31 @@
 			#show_detail_img{
 				margin:3rem auto;
 				width: 50vw;
-				background-color: red;
 				text-align: center;
 			}
 			#show_detail_img img{
 				display: none;
 				width: 50%;
 				margin: 0 auto;
+			}
+			
+			.tooltip.right .tooltip-arrow{
+				top:50%;
+				left:0;
+				margin-top:-5px;
+				border-top:5px solid transparent;
+				border-bottom:5px solid transparent;
+				border-right:5px solid #000
+			}
+			.tooltip.right .tooltip-inner{
+				max-width:310px;
+				padding:3px 8px;
+				color:#fff;
+				text-align:center;
+				background-color:#CC0000;
+				-webkit-border-radius:4px;
+				-moz-border-radius:4px;
+				border-radius:4px
 			}
 			
 			
@@ -282,20 +300,24 @@
 				
 				$(".carousel-inner .carousel-item:first-child").addClass("active");
 
-				$(".carousel-inner .carousel-item a").click(function(){
-					$("#show_detail_img img").slideUp();
-					//var img_name="img/artwork/"+$(this).attr("href");
-					var img_name="img/artwork/"+$(this).data("src");
-
-					console.log($(this).data("src"));
-					
-					$("#show_detail_img img").attr("src", img_name);
-					$("#show_detail_img img").slideDown();
+				$("#show_detail_img [data-toggle='tooltip']").tooltip({
+						animated: 'fade',
+					    placement: 'right',
+					    html: true
 				});
 				
-
-
-
+				$(".carousel-inner .carousel-item a").click(function(){
+					$("#show_detail_img img").fadeOut();
+					//var img_name="img/artwork/"+$(this).attr("href");
+					var img_name="img/artwork/"+$(this).data("src");
+					var img_title=$("img", this).attr("alt");
+					var img_description=$(this).data("description");
+					
+					$("#show_detail_img img").attr("src", img_name);
+					$("#show_detail_img img").attr("title", "Title : "+img_title+" & Description : "+img_description);
+					$("#show_detail_img img").fadeIn();
+				});
+				
 				
 			});
 		</script>
@@ -409,9 +431,9 @@
 					
 					<!-- The slideshow -->
 					<div class="carousel-inner">
-						<c:forEach items="${artwork_list}" var="artwork_list">
-							<div id="slide" class="carousel-item" style="background-color:green;">
-								<a data-src="${artwork_list.imgfile}" href="#slide" style="background-color:fuchsia;">
+						<c:forEach items="${artwork_list}" var="artwork_list"> 
+							<div id="slide" class="carousel-item">
+								<a data-src="${artwork_list.imgfile}" data-description="${artwork_list.description}" href="#slide">
 									<img src="img/artwork/${artwork_list.thumbnail}" alt="${artwork_list.title}">
 								</a>
 							</div>
@@ -430,7 +452,14 @@
 		</div>
 		
 		<div id="show_detail_img">
-			<img alt="slide image" src="">
+			<img alt="slide image" src="" data-toggle="tooltip" title="">
+			<div class="box-content">
+				<h3 class="title">Kristina</h3>
+				<span class="post">Web designer</span>
+			</div>
+			<ul class="icon">
+				<li><a href="#"><i class="fa fa-link"></i></a></li>
+			</ul>
 		</div>			
 		
 		<div id="renewal">
