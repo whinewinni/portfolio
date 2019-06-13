@@ -145,34 +145,129 @@
 			
 			#show_detail_img{
 				margin:3rem auto;
-				width: 50vw;
+				width:70%;
 				text-align: center;
+				position:relative;
+				overflow:hidden;
+				z-index:1;
+			}
+			#show_detail_img::before{
+				content:"";
+				background-color: #fff;
+				box-shadow: 0 0 15px #222;
+				opacity: 0;
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				z-index: 1;
+				transition:all 0.3s;
+			}
+			#show_detail_img:hover::before{
+				opacity: 0.3;
+				left: 20px;
+				top: 20px;
+				bottom: 20px;
+				right:20px;
 			}
 			#show_detail_img img{
 				display: none;
-				width: 50%;
-				margin: 0 auto;
+				width: 100%;
+				height: auto;
+				transition:all 0.5s;
 			}
-			
-			.tooltip.right .tooltip-arrow{
-				top:50%;
-				left:0;
-				margin-top:-5px;
-				border-top:5px solid transparent;
-				border-bottom:5px solid transparent;
-				border-right:5px solid #000
+			#show_detail_img:hover img{
+				filter:grayscale(40%);
 			}
-			.tooltip.right .tooltip-inner{
-				max-width:310px;
-				padding:3px 8px;
-				color:#fff;
-				text-align:center;
-				background-color:#CC0000;
-				-webkit-border-radius:4px;
-				-moz-border-radius:4px;
-				border-radius:4px
+			#show_detail_img .box-content{
+				text-align: right;
+				position: absolute;
+				left: 20px;
+				bottom: 20px;
+				z-index: 1;			
 			}
-			
+			#show_detail_img .content_title{
+				color: #fff;
+				background: linear-gradient(#ED213A,#93291E);
+			    font-size: 25px;
+			    font-weight: 600;
+			    text-transform: uppercase;
+			    padding: 4px 10px;
+			    margin: 0 19px 4px 0;
+			    opacity: 0;
+			    transform: translateX(-20px);
+			 	transition: all 0.5s;
+			}
+			#show_detail_img:hover .content_title{
+				opacity: 1;
+    			transform: translateX(0);
+			}
+			#show_detail_img .post{
+				color: #fff;
+			    background: linear-gradient(#ED213A,#93291E);
+			    font-size: 15px;
+			    letter-spacing: 1px;
+			    text-transform: capitalize;
+			    padding: 3px 10px;
+			    margin: 0 0 15px;
+			    display: inline-block;
+			    opacity: 0;
+			    transform: translateX(20px);
+			    position: relative;
+			    transition: all 0.5s;
+			}
+			#show_detail_img:hover .post{
+				opacity: 1;
+    			transform: translateX(0);
+			}
+			#show_detail_img .post:before{
+			    content: '';
+			    background: linear-gradient(45deg, #ED213A 49%, transparent 50%);
+			    height: 18px;
+			    width: 15px;
+			    position: absolute;
+			    top: -18px;
+			    right: 0;
+			}
+			#show_detail_img .icon{
+			    padding: 0;
+			    margin: 0;
+			    list-style: none;
+			    opacity: 0;
+			    position: absolute;
+			    top: 28px;
+			    right: 28px;
+			    z-index: 1;
+			    transition: all 0.5s;
+			}
+			#show_detail_img:hover .icon{ opacity: 1; }
+			#show_detail_img .icon li a{
+			    color: #fff;
+			    background-color: #ED213A;
+			    font-size: 18px;
+			    text-align: center;
+			    line-height: 35px;
+			    height: 35px;
+			    width: 35px;
+			    margin: 0 0 5px;
+			    border-radius: 10px 0;
+			    display: block;
+			    transition: all 0.3s;
+			}
+			#show_detail_img .icon li a:hover{
+			    color: #fff;
+			    background-color: #ED213A;
+			    text-shadow: 0 0 2px #222;
+			    box-shadow: 0 0 10px #ED213A;
+			}
+			@media only screen and (max-width:990px){
+			    /*#show_detail_img { margin: 0 0 30px; }*/
+			}
+			@media only screen and (max-width:479px){
+			    #show_detail_img .title{ font-size: 18px; }
+			    #show_detail_img .post{ font-size: 12px; }
+			}
 			
 			#renewal {
 				width: 70vw;
@@ -297,28 +392,26 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<script>
 			$(function() {
-				
 				$(".carousel-inner .carousel-item:first-child").addClass("active");
 
 				$("#show_detail_img [data-toggle='tooltip']").tooltip({
-						animated: 'fade',
-					    placement: 'right',
-					    html: true
+					animated: 'fade',
+					placement: 'right',
+					html: true
 				});
-				
 				$(".carousel-inner .carousel-item a").click(function(){
 					$("#show_detail_img img").fadeOut();
-					//var img_name="img/artwork/"+$(this).attr("href");
 					var img_name="img/artwork/"+$(this).data("src");
 					var img_title=$("img", this).attr("alt");
 					var img_description=$(this).data("description");
 					
 					$("#show_detail_img img").attr("src", img_name);
-					$("#show_detail_img img").attr("title", "Title : "+img_title+" & Description : "+img_description);
+					//$("#show_detail_img img").attr("title", "Title : "+img_title+" & Description : "+img_description);
+					$("#show_detail_img h3.content_title").html(img_title);
+					$("#show_detail_img span.post").html(img_description);
+					
 					$("#show_detail_img img").fadeIn();
 				});
-				
-				
 			});
 		</script>
 	</head>
@@ -452,16 +545,18 @@
 		</div>
 		
 		<div id="show_detail_img">
+		
 			<img alt="slide image" src="" data-toggle="tooltip" title="">
 			<div class="box-content">
-				<h3 class="title">Kristina</h3>
+				<h3 class="content_title">Kristina</h3>
 				<span class="post">Web designer</span>
 			</div>
 			<ul class="icon">
 				<li><a href="#"><i class="fa fa-link"></i></a></li>
 			</ul>
+			
 		</div>			
-		
+
 		<div id="renewal">
 		
 			<div id="logo_slide"></div>
