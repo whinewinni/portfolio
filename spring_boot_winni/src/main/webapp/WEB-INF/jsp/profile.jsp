@@ -116,7 +116,7 @@
 				width: 70%;
 			}
 			#skill_wrap #skill_tables .half_card{
-				width:48%;
+				width:23%;
 				float: left;
 				margin: 1%;
 				font-size:0.8rem
@@ -306,6 +306,8 @@
 					padding: 10px 30px 10px 0;
 				}
 			}
+			
+			
 			@media only screen and (max-width: 767px){
 				.main-timeline:before{
 					margin: 0;
@@ -343,6 +345,11 @@
 					margin-bottom: 10px;
 				}
 			}
+			@media all and ( max-width:1670px ){
+				#profile .row{
+					display: block;
+				}
+			}
 			
 		</style>
 		<!-- jQuery -->
@@ -355,7 +362,17 @@
 		<script>
 			$(function() {
 				
+				var focus="html, body";
 				
+				$("nav#sub_menu ol.nav li").eq(0).click(function(){
+					$(focus).animate({scrollTop:$("#sub_menu").offset().top});
+				});
+				$("nav#sub_menu ol.nav li").eq(1).click(function(){
+					$(focus).animate({scrollTop:$("#skill_wrap #skill_graph").offset().top});
+				});
+				$("nav#sub_menu ol.nav li").eq(2).click(function(){
+					$(focus).animate({scrollTop:$("#timeline .main-timeline").offset().top-150});
+				});
 			});
 		</script>
 	</head>
@@ -416,13 +433,13 @@
 		<nav id="sub_menu">
 			<ol class="nav">
 				<li class="nav-item">
-					<a class="nav-link active" href="#">Profile</a>
+					<a class="nav-link active" href="#" onclick="return false;">Profile</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">skill</a>
+					<a class="nav-link" href="#" onclick="return false;">skill</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Time life</a>
+					<a class="nav-link" href="#" onclick="return false;">Time life</a>
 				</li>
 			</ol>
 		</nav>

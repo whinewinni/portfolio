@@ -355,6 +355,17 @@
 		<script>
 			$(function() {
 				
+				var focus="html, body";
+				
+				$("nav#sub_menu ol.nav li").eq(1).click(function(){
+					$("#skill_wrap").offset().height();
+					console.log($("#skill_wrap").offset().height());
+					console.log("GFDGFDSFDGsfdsfd");
+					
+					//$(focus).animate({scrollTop:$("#skill_wrap").offset().top()});
+					
+					
+				});
 				
 			});
 		</script>
@@ -389,13 +400,13 @@
 		<nav id="sub_menu">
 			<ol class="nav">
 				<li class="nav-item">
-					<a class="nav-link active" href="#">Profile</a>
+					<a class="nav-link active" onclick="return false" href="#">Profile1</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">skill</a>
+					<a class="nav-link" onclick="return false" href="#">skill</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Time life</a>
+					<a class="nav-link" href="#" onclick="return false">Time life</a>
 				</li>
 			</ol>
 		</nav>

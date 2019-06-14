@@ -145,7 +145,7 @@
 			
 			#show_detail_img{
 				margin:3rem auto;
-				width:70%;
+				width:60%;
 				text-align: center;
 				position:relative;
 				overflow:hidden;

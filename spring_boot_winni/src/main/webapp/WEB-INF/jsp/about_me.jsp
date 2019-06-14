@@ -391,48 +391,48 @@
 
 				<!-- Grid column -->
 				<div class="mb-3 pics animation all 2">
-					<img class="img-fluid" src="img/interest_img01.png" alt="Card image cap">
+					<img class="img-fluid" src="img/aboutme/interest_img01.png" alt="Card image cap">
 					<span><p>May 3th, 2019</p><p>blahblahdkd</p></span>
 				</div>
 				<!-- Grid column -->
 
 				<div class="mb-3 pics animation all 1">
-					<img class="img-fluid" src="img/interest_img02.jpg" alt="Card image cap">
+					<img class="img-fluid" src="img/aboutme/interest_img02.jpg" alt="Card image cap">
 					<span><p>May 3th, 2019</p><p>blahblahdkd</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 1">
-					<img class="img-fluid" src="img/interest_img03.png" alt="Card image cap">
+					<img class="img-fluid" src="img/aboutme/interest_img03.png" alt="Card image cap">
 					<span><p>May 3th, 2019</p><p>blahblahdkd</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 2">
-					<img class="img-fluid" src="img/interest_img04.png" alt="Card image cap">
+					<img class="img-fluid" src="img/aboutme/interest_img04.png" alt="Card image cap">
 					<span><p>May 3th, 2019</p><p>blahblahdkd</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 2">
-					<img class="img-fluid" src="img/interest_img05.jpg" alt="Card image cap">
+					<img class="img-fluid" src="img/aboutme/interest_img05.jpg" alt="Card image cap">
 					<span><p>May 3th, 2019</p><p>blahblahdkd</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 1">
-					<img class="img-fluid" src="img/interest_img06.png" alt="Card image cap">
+					<img class="img-fluid" src="img/aboutme/interest_img06.png" alt="Card image cap">
 					<span><p>May 3th, 2019</p><p>blahblahdkd</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 2">
-					<img class="img-fluid" src="img/interest_img07.jpg" alt="Card image cap">
+					<img class="img-fluid" src="img/aboutme/interest_img07.jpg" alt="Card image cap">
 					<span><p>May 3th, 2019</p><p>blahblahdkd</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 2">
-					<img class="img-fluid" src="img/interest_img08.jpg" alt="Card image cap">
+					<img class="img-fluid" src="img/aboutme/interest_img08.jpg" alt="Card image cap">
 					<span><p>May 3th, 2019</p><p>blahblahdkd</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 2">
-					<img class="img-fluid" src="img/interest_img09.jpg" alt="Card image cap">
+					<img class="img-fluid" src="img/aboutme/interest_img09.jpg" alt="Card image cap">
 					<span><p>May 3th, 2019</p><p>blahblahdkd</p></span>
 				</div>
 			</div>
@@ -444,7 +444,7 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="card">
-						<img id="board" src="img/KakaoTalk_20190603_154438254.gif">
+						<img id="board" src="img/aboutme/KakaoTalk_20190603_154438254.gif">
 					</div>
 				</div>
 				<div class="col-md-6">
@@ -462,7 +462,7 @@
 				</div>
 				<div class="col-md-3">
 					<div class="card">
-						<img src="img/blah02.gif">
+						<img src="img/aboutme/blah02.gif">
 					</div>
 				</div>
 			</div>
