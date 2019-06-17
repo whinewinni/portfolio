@@ -9,11 +9,14 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.whine.winni.repository.Board_repository;
@@ -47,11 +50,13 @@ public class Board_controller {
 	
 	@CrossOrigin
 	@RequestMapping(value="/get_list")
-	public @ResponseBody List<Board_vo> get_list(Model model) {
+	public @ResponseBody Page<Board_vo> get_list(Model model, 
+			@PageableDefault(sort= {"date"}, direction=Direction.DESC, size=7) Pageable pageable, 
+			@RequestParam(defaultValue = "") String search) {
+		Page<Board_vo> board_list = board_repository.select_list(search, pageable);
+		//pageable.getPageSize()-1;
 		
-		List<Board_vo> board_list = board_repository.select_list();
-		
-		for(Board_vo vo : board_list) {
+		for(Board_vo vo : board_list) { ///날짜 형식 포멧
 			String date=vo.getDate().split(" ")[0];
 			vo.setDate(date);
 		}

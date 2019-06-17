@@ -18,6 +18,9 @@
 				height: 100vh;
 				background-color: BLUE;
 			}
+			header nav{
+				overflow: hidden;
+			}
 			header nav h1{
 				float: left;
 				margin-left:5rem;
@@ -46,8 +49,8 @@
 				opacity:0.5;
 				/* font-weight: bolder; */
 				transition:all 1s;
-
 			}
+			
 			nav#sub_menu{
 				width: 100%;
 				overflow: hidden;
@@ -341,6 +344,9 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<script>
 			$(function() {
+
+				
+				
 			});
 		</script>
 	</head>
@@ -366,20 +372,47 @@
 					<li>About me</li>
 					<li>Portfolio</li>
 					<li>Board</li>
-					<li>Contact</li>
+					<li data-toggle="modal" data-target="#contact_modal">Contact</button></li>
 				</ul>
 			</nav>
+			
+			<!-- The Modal -->
+			<div class="modal fade" id="contact_modal">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+					  
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title">Contact me</h4><br />
+							
+							<button type="button" class="close" data-dismiss="modal" onfocus="this.blur()">&times;</button>
+						</div>
+						
+						<!-- Modal body -->
+						<div class="modal-body">
+							<textarea class="form-control" id="exampleTextarea" rows="7" placeholder="If you have any questions, please don’t hesitate to contact using form below…"></textarea>
+						</div>
+						
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<p>* plase leave a message, I will call you later</p>	
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Send</button>
+						</div>
+					  
+					</div>
+				</div>
+			</div>
 		</header>
 		<nav id="sub_menu">
 			<ol class="nav">
 				<li class="nav-item">
-					<a class="nav-link active" href="#">Interest</a>
+					<a class="nav-link active" href="#gallery">Interest</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Motive</a>
+					<a class="nav-link" href="#motive_wrap">Motive</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">And so on</a>
+					<a class="nav-link" href="#accordion-style-1">And so on</a>
 				</li>
 			</ol>
 		</nav>

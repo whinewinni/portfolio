@@ -15,6 +15,10 @@ public class Call_view_Contoller {
 	public String aboutme_page() {
 		return "about_me";
 	}
+	@RequestMapping(value ="/test_motion")
+	public String test_motion() {
+		return "test_motion";
+	}
 	
 	
 

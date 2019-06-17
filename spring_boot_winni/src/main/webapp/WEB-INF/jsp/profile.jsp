@@ -13,11 +13,18 @@
 		<link rel="stylesheet" href="https://www.koolchart.com/demo/KoolChart/Assets/Css/KoolChart.css"/>
 		<style>
 			*{
-				font-size: 16px
+				font-size: 16px;
+			}
+			body{
+				overflow-x: hidden;
+			
 			}
 			header{
 				height: 100vh;
 				background-color: BLUE; /* #50c7e0 */
+			}
+			header nav{
+				height: 100px;
 			}
 			header nav h1{
 				float: left;
@@ -47,8 +54,87 @@
 				opacity:0.5;
 				/* font-weight: bolder; */
 				transition:all 1s;
-				
 			}
+			
+			/* --------------------------------------- */
+			header #header_bottom{
+				position: absolute;
+				bottom:10%;
+				width: 100%
+			}
+			header #header_bottom #header_text{
+				float: left;
+				width: 95%;
+				padding-left: 5%;
+			}
+			header #header_bottom #header_text h2{
+				text-align: center;
+			  	font-size: 11vw;
+				position: relative;
+				font-weight: 900;
+				text-transform: uppercase;
+				line-height: 1;
+				color: transparent;
+				margin: 0 auto;
+			}
+			header #header_bottom #header_text h2::before, 
+			header #header_bottom #header_text h2::after {
+				content: attr(data-heading);
+				position: absolute;
+				top: 0;
+				left: 0;	
+			}
+			header #header_bottom #header_text h2::before {
+				color: #77c5ff;
+				clip-path: polygon(0% 100%, 100% 100%, 100% 40%, 0 60%)
+			}
+			header #header_bottom #header_text h2::after {
+				color: white;
+				clip-path: polygon(0 0, 100% 0%, 100% 36%, 0 56%);
+				animation: text_motion 5s infinite;
+			}
+			@keyframes text_motion {
+				0% {
+					transform: translateX(0);
+				}
+				50% {
+					transform: translate(-20px, 2%);
+				}
+			}
+			header #header_bottom #scroll_side{
+				float: right;
+				color: white;
+				position: relative;
+				right: 5%;
+				height: 100px;
+				background-color:orange;
+			}
+			header #header_bottom #scroll_side span#scroll{
+				writing-mode: vertical-rl;
+				position: absolute;
+			}
+			header #header_bottom #scroll_side span#scroll::before{
+				content: "";
+				background-color: white;
+				width: 0.5px;
+				height:100px;
+				display: block;
+				animation: scroll_motion 1.5s infinite;
+				position: absolute;
+				right:10px;
+				top: 110%
+			}
+			@keyframes scroll_motion {
+				form {
+					height:100%;
+				}to{
+					height:0;
+				}
+			}
+			/* ---------------------------------------- */
+			
+			
+			
 			nav#sub_menu{
 				width: 100%;
 				overflow: hidden;
@@ -349,6 +435,12 @@
 				#profile .row{
 					display: block;
 				}
+				#profile .row #selfie{
+					margin: 0 auto;
+				}
+				#profile #profile_detail{
+					margin: 0 auto;
+				}
 			}
 			
 		</style>
@@ -372,6 +464,12 @@
 				});
 				$("nav#sub_menu ol.nav li").eq(2).click(function(){
 					$(focus).animate({scrollTop:$("#timeline .main-timeline").offset().top-150});
+				});
+
+				var h2_text = document.querySelector("header #header_bottom h2");
+
+				h2_text.addEventListener("input", function() {
+				    this.setAttribute("data-heading", this.innerText);
 				});
 			});
 		</script>
@@ -401,6 +499,15 @@
 					<li data-toggle="modal" data-target="#contact_modal">Contact</button></li>
 				</ul>
 			</nav>
+			
+			<div id="header_bottom">
+				<div id="header_text">
+					<h2 contenteditable data-heading="whinewinni">whinewinni</h2>
+				</div>
+				<div id="scroll_side">
+					<span id="scroll">SCROLL</span>
+				</div>
+			</div>
 			
 			<!-- The Modal -->
 			<div class="modal fade" id="contact_modal">

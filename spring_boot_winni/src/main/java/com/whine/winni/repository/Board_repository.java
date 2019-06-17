@@ -21,8 +21,10 @@ public class Board_repository {
 		return repository_interface.findById(seq_no).get();
 	}
 
-	public List<Board_vo> select_list() {
-		return (List<Board_vo>) repository_interface.findAllByOrderByDateDesc();
+	public Page<Board_vo> select_list(String search , Pageable pageable) {
+		//return (List<Board_vo>) repository_interface.findAllByOrderByDateDesc();
+		//String title="222";
+		return repository_interface.findByTitleContainingOrContentContaining(search, search, pageable);
 	}
 
 	public void insert_data(Board_vo vo) {

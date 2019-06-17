@@ -2,6 +2,8 @@ package com.whine.winni.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 //import org.springframework.data.repository.CrudRepository;
@@ -24,5 +26,5 @@ public interface BoardRepository_interface extends JpaRepository<Board_vo, Integ
 	@Query(value="update board set hit=hit+1 where seq_no=?1", nativeQuery=true)
 	void update_hit(int seq_no);
 	
-	
+	Page<Board_vo> findByTitleContainingOrContentContaining(String title, String content, Pageable pageable);
 }
