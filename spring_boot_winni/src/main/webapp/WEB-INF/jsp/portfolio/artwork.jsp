@@ -20,9 +20,36 @@
 			header{
 				width: 100vw;
 				height: 100vh;
-				background-color: red;
 				position: relative;
+				
+				background:linear-gradient(219deg, #ff3a00, #ff293c, #ea4818, #b3080d);
+				background-size: 800% 800%;
+				
+				animation: background_gradient 3s ease infinite;
 			}
+			@keyframes background_gradient { 
+				0%{
+					background-position:51% 0%;
+				}
+				50%{
+					background-position:50% 100%;
+				}
+				100%{
+					background-position:51% 0%;
+				}
+			}
+			
+			header nav{
+				width: 100vw;
+				height: 10vh;
+			}
+			header nav.stuck_menu{
+	            position: fixed;
+	            top:0;
+	            box-shadow:0px 4px 10px rgba(0, 0, 0, 0.2);
+	            z-index: 2;
+	            background-color: #ff001878
+         	}
 			header nav h1{
 				float: left;
 				margin-left:5rem;
@@ -44,6 +71,57 @@
 			header nav ul li:last-child{
 				cursor: pointer;
 			}
+			header #header_bottom{
+				width: 100%;
+			}
+			header #header_bottom #header_picture{
+				width: 95%;
+				float:left;
+				padding-left:19vw;
+				padding-top:18vh;
+			}
+			/* header #header_bottom #header_picture img{
+				width: 40vw;
+			} 
+			header #header_bottom #header_picture #molbars_1{
+				margin: 0 auto;
+			} */
+			/* ----------------------------------------- */
+			header #header_bottom #scroll_side{
+				float: right;
+				color: white;
+				position: relative;
+				right: 5%;
+				height: 100px;
+				background-color:transparent;
+				
+				width: 20px;
+				background-color: orange
+			}
+			header #header_bottom #scroll_side span#scroll{
+				writing-mode: vertical-rl;
+				position: absolute;
+			}
+			header #header_bottom #scroll_side span#scroll::before{
+				content: "";
+				background-color: white;
+				width: 0.5px;
+				height:100px;
+				display: block;
+				animation: scroll_motion 1.5s infinite;
+				position: absolute;
+				right:10px;
+				top: 110%
+			}
+			@keyframes scroll_motion {
+				form {
+					height:100%;
+				}to{
+					height:0;
+				}
+			}
+			/* ----------------------------------------- */
+			
 			
 			#admin_btn{
 				float: right;
@@ -342,6 +420,14 @@
 				#mobile #mobile_right{
 					clear: both;
 				}
+				header #header_bottom #header_picture{
+					padding-left: 15vw
+				}
+			}
+			@media all and (max-width:1100px){
+				header #header_bottom #header_picture{
+					padding-left:10px
+				}
 			}
 			@media all and (max-width:850px){
 				#renewal #reneal_right{
@@ -387,11 +473,52 @@
 				}
 			}
 		</style>
+		<!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!-- modal? -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<!-- bootstrap -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<!-- PicStrips -->
+		<script src="script/picstrips-1.0-min.js"></script>
 		<script>
 			$(function() {
+				
+				//var nav_height = $("header nav").height();
+				
+				$(window).scroll(function(){
+					
+					var scroll_position=$(this).scrollTop();
+					
+					if( scroll_position >= $("header nav").height() ){
+						$("header nav").addClass("stuck_menu");
+					}else{
+						$("header nav").removeClass("stuck_menu");
+					}
+					
+					if( scroll_position >= $("header").height() ){
+						$("header nav").css({backgroundColor:"#ff293c"});
+					}else{
+						$("header nav").css({backgroundColor:""});
+					}
+				});
+				
+				
+				
+				
+				$(window).on('load', function(){
+					$("header #header_bottom #header_picture img").picstrips({
+						splits:20, hgutter: '2px', vgutter: '5px', bgcolor:'#ff000000'
+					});
+					
+					$("header #header_bottom #header_picture #molbars_1 div").hover(function(){
+						$(this).css({opacity: "0.3"});
+					}, function(){
+						$(this).css({opacity:1});
+					});
+					
+				});
+				
 				$(".carousel-inner .carousel-item:first-child").addClass("active");
 
 				$("#show_detail_img [data-toggle='tooltip']").tooltip({
@@ -442,6 +569,14 @@
 				</ul>
 			</nav>
 			
+			<div id="header_bottom">
+				<div id="header_picture">
+					<img alt="red bus" src="img/artwork/IMG_0097_small.jpg">
+				</div>
+				<div id="scroll_side">
+					<span id="scroll">SCROLL</span>
+				</div>
+			</div>
 			
 			
 			<!-- contac The Modal -->
@@ -497,7 +632,7 @@
 		</div>
 		<!-- admin login Modal end -->
 		
-		<nav>
+		<nav id="sub_menu">
 			<ul class="nav">
 				<li class="nav-item">
 					<a class="nav-link active" href="#">Artwork</a>
