@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -41,7 +42,7 @@
 			
 			header nav{
 				width: 100vw;
-				height: 10vh;
+				height:100px;
 			}
 			header nav.stuck_menu{
 	            position: fixed;
@@ -412,6 +413,28 @@
 				margin: 0 auto;
 			}
 			
+			button#top_button{
+				float: right;
+				/* margin-right: 5%; */
+				position: fixed;
+				bottom: 10%;
+				right:3%;
+				display: none;
+			}
+			
+			
+			footer{
+				width: 100vw;
+				height: 100px;
+				background-color: #ff293c;
+				text-align: center;
+				margin-top: 10vh;
+			}
+			span{
+				color: white;
+				line-height: 100px
+			}
+			
 			
 			@media all and (max-width:1400px){
 				#mobile #mobile_left, #mobile #mobile_right{
@@ -484,31 +507,40 @@
 		<script>
 			$(function() {
 				
+				var scrollPos = 0;
 				//var nav_height = $("header nav").height();
-				
 				$(window).scroll(function(){
-					
 					var scroll_position=$(this).scrollTop();
-					
-					if( scroll_position >= $("header nav").height() ){
+					if( scroll_position >= 10 ){ //header main menu 
 						$("header nav").addClass("stuck_menu");
 					}else{
 						$("header nav").removeClass("stuck_menu");
 					}
 					
-					if( scroll_position >= $("header").height() ){
+					if( scroll_position >= $("header").height() ){ //header main menu bg color
 						$("header nav").css({backgroundColor:"#ff293c"});
 					}else{
 						$("header nav").css({backgroundColor:""});
 					}
+
+					//스트룰 다운 && 서브 메뉴 위치보다 높을경우.
+					if(scroll_position < scrollPos && $("#sub_menu").offset().top < scrollPos){
+						console.log("up");
+						$("button#top_button").fadeIn();
+					}else{
+						console.log("down");
+						$("button#top_button").fadeOut();
+					}
+					scrollPos = $(this).scrollTop(); // 현 위치값 저장
 				});
-				
-				
-				
+
+				$("button#top_button").click(function(){ //top button click, position top
+					$("html, body").animate({scrollTop:0});
+				});
 				
 				$(window).on('load', function(){
 					$("header #header_bottom #header_picture img").picstrips({
-						splits:20, hgutter: '2px', vgutter: '5px', bgcolor:'#ff000000'
+						splits:20, hgutter: '4px', vgutter: '5px', bgcolor:'#ff000000'
 					});
 					
 					$("header #header_bottom #header_picture #molbars_1 div").hover(function(){
@@ -516,7 +548,6 @@
 					}, function(){
 						$(this).css({opacity:1});
 					});
-					
 				});
 				
 				$(".carousel-inner .carousel-item:first-child").addClass("active");
@@ -740,8 +771,8 @@
 			</div>
 			
 		</div>
-
-	<div style="height:1000px"></div>
+		<button class="btn btn-danger btn-sm" id="top_button"><i class='fas'>&#xf077;</i><br />Top</button>
+		<footer><span>@ Copyright 2019 © Whine winni (Euni CHO) All Rights Reserved.</span></footer>
 
 </body>
 </html>

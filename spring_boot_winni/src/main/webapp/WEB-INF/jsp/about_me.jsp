@@ -580,9 +580,5 @@
 			<span>@ Copyright 2019 © Whine winni (Euni CHO) All Rights Reserved.</span>
 		</footer>
 
-
-		<div style="background-color: orange; width: 100%; height: 800px">스크롤의 자유를!!!!</div>
-
-
 	</body>
 </html>
