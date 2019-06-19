@@ -23,12 +23,12 @@
 				height: 100vh;
 				position: relative;
 				
-				background:linear-gradient(219deg, #ff3a00, #ff293c, #ea4818, #b3080d);
+				background-image:linear-gradient(219deg, #ff3a00, #ff293c, #ea4818, #b3080d);
 				background-size: 800% 800%;
 				
 				animation: background_gradient 3s ease infinite;
 			}
-			@keyframes background_gradient { 
+			/* @keyframes background_gradient { 
 				0%{
 					background-position:51% 0%;
 				}
@@ -38,7 +38,7 @@
 				100%{
 					background-position:51% 0%;
 				}
-			}
+			} */
 			
 			header nav{
 				width: 100vw;
@@ -49,7 +49,11 @@
 	            top:0;
 	            box-shadow:0px 4px 10px rgba(0, 0, 0, 0.2);
 	            z-index: 2;
-	            background-color: #ff001878
+
+	            background-image:linear-gradient(219deg, #ff3a00, #ff293c, #ea4818, #b3080d);
+				background-size: 800% 800%; 
+				
+				animation: background_gradient 3s ease infinite;
          	}
 			header nav h1{
 				float: left;
@@ -361,7 +365,22 @@
 				width: 50%;
 				background-color: #fbe8e8;
 				float: left;
-				height:500px
+				height:500px;
+				overflow: hidden;
+			}
+			#renewal #logo_slide ul{
+			}
+			#renewal #logo_slide ul li{
+				width: 100%;
+				height: 100%;
+				line-height: 500px;
+				text-align: center;
+			}
+			#renewal #logo_slide ul li img{
+				width: 100px;
+			}
+			#renewal #logo_slide ul li img:last-child{
+				width:200px;
 			}
 			#renewal #reneal_right{
 				width: 50%;
@@ -386,11 +405,11 @@
 			#renewal #reneal_right #logo_btns{
 				position:absolute;
 				bottom: 0;
-				right:20%;
+				right:0;
 				font-size: 1rem;
-				width: 15rem
-				
-				
+			}
+			#renewal #reneal_right #logo_btns button{
+				width:8rem
 			}
 			#mobile{
 				width: 70vw;
@@ -426,13 +445,28 @@
 			footer{
 				width: 100vw;
 				height: 100px;
-				background-color: #ff293c;
 				text-align: center;
 				margin-top: 10vh;
+				
+				background-image:linear-gradient(219deg, #ff3a00, #ff293c, #ea4818, #b3080d);
+				/* background-size: 800% 800%; */
+				
+				animation: background_gradient 3s ease infinite;
 			}
-			span{
+			footer span{
 				color: white;
 				line-height: 100px
+			}
+			@keyframes background_gradient { 
+				0%{
+					background-position:51% 0%;
+				}
+				50%{
+					background-position:50% 100%;
+				}
+				100%{
+					background-position:51% 0%;
+				}
 			}
 			
 			
@@ -516,12 +550,6 @@
 					}else{
 						$("header nav").removeClass("stuck_menu");
 					}
-					
-					if( scroll_position >= $("header").height() ){ //header main menu bg color
-						$("header nav").css({backgroundColor:"#ff293c"});
-					}else{
-						$("header nav").css({backgroundColor:""});
-					}
 
 					//스트룰 다운 && 서브 메뉴 위치보다 높을경우.
 					if(scroll_position < scrollPos && $("#sub_menu").offset().top < scrollPos){
@@ -570,6 +598,15 @@
 					
 					$("#show_detail_img img").fadeIn();
 				});
+				
+				$("#renewal #logo_slide ul li").eq(0).fadeIn();
+				setInterval(function(){
+					$("#renewal #logo_slide ul li").eq(0).fadeOut();
+					$("#renewal #logo_slide ul li").eq(0).appendTo("#renewal #logo_slide ul");
+					$("#renewal #logo_slide ul li").eq(0).fadeIn();
+				}, 3000);
+				
+				
 			});
 		</script>
 	</head>
@@ -711,8 +748,7 @@
 		</div>
 		
 		<div id="show_detail_img">
-		
-			<img alt="slide image" src="" data-toggle="tooltip" title="">
+			<img alt="slide image" src="" title="">
 			<div class="box-content">
 				<h3 class="content_title">Kristina</h3>
 				<span class="post">Web designer</span>
@@ -720,12 +756,16 @@
 			<ul class="icon">
 				<li><a href="#"><i class="fa fa-link"></i></a></li>
 			</ul>
-			
 		</div>			
 
 		<div id="renewal">
-		
-			<div id="logo_slide"></div>
+			<div id="logo_slide">
+				<ul>
+					<li><a href="#"><img alt="" src="https://w1ipfd13jz-flywheel.netdna-ssl.com/wp-content/themes/simplxr/dist/images/brand-logo-simplxr_d20f87e7.svg"></a></li>
+					<li><a href="#"><img alt="" src="http://adventure.lotteworld.com/common_mus/images/logo.png"></a></li>
+					<li><a href="#"><img alt="" src="img/artwork/daelim_logo.png"></a></li>
+				</ul>
+			</div>
 			
 			<div id="reneal_right">
 				<div id="spinner_grow">
@@ -736,35 +776,36 @@
 					<div class="spinner-grow text-danger" role="status"></div>
 				</div>
 			
-				<h2>Photoshop's version  of Lorem Ipsum</h2>
+				<h2>Renewal Site for web Publishing</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, dolor molestiae distinctio, repellat suscipit in maiores quae eligendi ex minus atque! Animi, fuga ut sed, quasi maiores a tenetur similique:</p>
 				
 				<div id="logo_btns" class="btn-group" role="group" aria-label="Basic example">
-					<button type="button" class="btn-sm btn btn-outline-danger"><i class='fas'>&#xf100;</i>&nbsp; Left</button>
-					<button type="button" class="btn-sm btn btn-outline-danger">Right &nbsp;<i class='fas'>&#xf101;</i></button>
+					<button type="button" class="btn-sm btn btn-outline-danger">Simplxr</button>
+					<button type="button" class="btn-sm btn btn-outline-danger">FolkMuseum</button>
+					<button type="button" class="btn-sm btn btn-outline-danger">DaerimCare</button>
 				</div>
 			</div>
 		</div>
 		<div id="mobile">
 			<h2>Mobile</h2>
-			<div id="mobile_card_wrap" style="width: 100%; border: 1px solid yellow; overflow: hidden;">
-				<div id="mobile_left" style="background-color: red">
+			<div id="mobile_card_wrap" style="width: 100%; overflow: hidden;">
+				<div id="mobile_left">
 					<div class="card">
 						<img src="img/artwork/m01.png" class="card-img-top" alt="...">
 						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-primary">Go somewhere</a>
+							<h5 class="card-title">Watch The Font</h5>
+							<p class="card-text">Simple and minimal design created for comfortable user experience.</p>
+							<a href="img/artwork/wtf.pdf" class="btn btn-primary"  target="_blank">PDF Download</a>
 						</div>
 					</div>
 				</div>
-				<div id="mobile_right" style="background-color:blue">
+				<div id="mobile_right">
 					<div class="card">
 						<img src="img/artwork/m02.png" class="card-img-top" alt="...">
 						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-primary">Go somewhere</a>
+							<h5 class="card-title">Walk around the town</h5>
+							<p class="card-text">Simple and minimal design created for comfortable user experience.</p>
+							<a href="img/artwork/mockup.pdf" class="btn btn-primary" target="_blank">PDF Download</a>
 						</div>
 					</div>
 				</div>

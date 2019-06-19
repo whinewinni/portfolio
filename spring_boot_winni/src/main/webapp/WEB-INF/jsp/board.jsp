@@ -1217,13 +1217,14 @@
 						<li class="page-item"><a class="page-link" href="#">Next</a></li>
 					</ul> -->
 					<ul class="pagination justify-content-center pagination-sm">
-						<li class="page-item ">
-							<a class="page-link" @click="board_list(page-1)">Prev</a>
-						</li>
+						<li class="page-item "><a class="page-link" @click="board_list(1)"><i class='fas'>&#xf100;</i></a></li>
+						<li class="page-item "><a class="page-link" @click="board_list(page-1)">Prev</a></li>
 						<li v-for="num in total_page" class="page-item">
 							<a class="page-link" @click="board_list(num-1)">{{num}}</a>
 						</li>
 						<li class="page-item"><a class="page-link" @click="board_list(page+1)">Next</a></li>
+						<li class="page-item"><a class="page-link"><i class='fas'>&#xf101;</i></a></li>
+						<!-- 맨마지막이랑 맨처음 수정 -->
 					</ul>
 				</nav>
 				<button id="write_btn" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#write_modal">write</button>
