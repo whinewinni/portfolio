@@ -28,18 +28,6 @@
 				
 				animation: background_gradient 3s ease infinite;
 			}
-			/* @keyframes background_gradient { 
-				0%{
-					background-position:51% 0%;
-				}
-				50%{
-					background-position:50% 100%;
-				}
-				100%{
-					background-position:51% 0%;
-				}
-			} */
-			
 			header nav{
 				width: 100vw;
 				height:100px;
@@ -375,6 +363,7 @@
 				height: 100%;
 				line-height: 500px;
 				text-align: center;
+				display: none;
 			}
 			#renewal #logo_slide ul li img{
 				width: 100px;
@@ -555,6 +544,9 @@
 					if(scroll_position < scrollPos && $("#sub_menu").offset().top < scrollPos){
 						console.log("up");
 						$("button#top_button").fadeIn();
+						setTimeout(function(){
+							$("button#top_button").fadeOut();
+						}, 4000);
 					}else{
 						console.log("down");
 						$("button#top_button").fadeOut();
@@ -762,7 +754,7 @@
 			<div id="logo_slide">
 				<ul>
 					<li><a href="#"><img alt="" src="https://w1ipfd13jz-flywheel.netdna-ssl.com/wp-content/themes/simplxr/dist/images/brand-logo-simplxr_d20f87e7.svg"></a></li>
-					<li><a href="#"><img alt="" src="http://adventure.lotteworld.com/common_mus/images/logo.png"></a></li>
+					<li><a href="#"><img alt="" src="http://adventure.lotteworld.com/common_mus/images/m_logo.png"></a></li>
 					<li><a href="#"><img alt="" src="img/artwork/daelim_logo.png"></a></li>
 				</ul>
 			</div>
@@ -795,7 +787,7 @@
 						<div class="card-body">
 							<h5 class="card-title">Watch The Font</h5>
 							<p class="card-text">Simple and minimal design created for comfortable user experience.</p>
-							<a href="img/artwork/wtf.pdf" class="btn btn-primary"  target="_blank">PDF Download</a>
+							<a href="img/artwork/wtf.pdf" class="btn btn-danger"  target="_blank">PDF Download</a>
 						</div>
 					</div>
 				</div>
@@ -805,7 +797,7 @@
 						<div class="card-body">
 							<h5 class="card-title">Walk around the town</h5>
 							<p class="card-text">Simple and minimal design created for comfortable user experience.</p>
-							<a href="img/artwork/mockup.pdf" class="btn btn-primary" target="_blank">PDF Download</a>
+							<a href="img/artwork/mockup.pdf" class="btn btn-danger" target="_blank">PDF Download</a>
 						</div>
 					</div>
 				</div>
