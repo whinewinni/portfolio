@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Call_view_Contoller {
 
 	
+	@RequestMapping(value ="/main")
+	public String main_page() {
+		return "main";
+	}
 	@RequestMapping(value ="/profile")
 	public String profile_page() {
 		return "profile";

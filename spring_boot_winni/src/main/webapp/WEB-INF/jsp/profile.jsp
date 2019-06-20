@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
@@ -392,8 +393,6 @@
 					padding: 10px 30px 10px 0;
 				}
 			}
-			
-			
 			@media only screen and (max-width: 767px){
 				.main-timeline:before{
 					margin: 0;
@@ -441,6 +440,18 @@
 				#profile #profile_detail{
 					margin: 0 auto;
 				}
+			}
+			
+			footer{
+				width: 100vw;
+				height: 100px;
+				text-align: center;
+				margin-top: 10vh;
+				background:blue;
+			}
+			footer span{
+				color: white;
+				line-height: 100px
 			}
 			
 		</style>
@@ -783,7 +794,7 @@
 			</div>
 		</div>
 	
-		<div style="height: 800px; line-height: 800px; background-color: pink">스크롤을 편안하게..</div>
+		<footer><span>@ Copyright 2019 © Whine winni (Euni CHO) All Rights Reserved.</span></footer>
 	
 	</body>
 	<script>
