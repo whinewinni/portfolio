@@ -89,7 +89,7 @@ public class Artwork_vo {
 		this.description = description;
 	}
 
-	
+	@Override
 	public String toString() {
 		StringBuffer sb=new StringBuffer();
 		

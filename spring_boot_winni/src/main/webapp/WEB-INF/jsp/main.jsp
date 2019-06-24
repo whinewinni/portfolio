@@ -5,13 +5,15 @@
 		<title>Winni's</title>
 		
 		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/jqcloud.css" />
 		<style>
 		
 			body{
-				height: 100%;
+				height: 100vh;
 				overflow: hidden;
 				background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 			}
+			/* 배경 별들 */
 			#stars1{
 				width: 1px;
 				height: 1px;
@@ -68,10 +70,251 @@
 			      transform: translateY(-2000px);
 			   }
 			}
+			
+			/* shooting star */
+			.night{
+            position: absolute;
+            width:100%;
+            height: 100%;
+            transform:rotateZ(140deg); 
+			}
+			.shooting_star{
+				position: absolute;
+				left: 50%;
+				top:50%;
+				height: 2px;
+				background-image: linear-gradient(-45deg, #f3edb3, rgba(255, 0, 0, 0));
+				border-radius:999px;
+				filter:drop-shadow(0 0 6px #f3edb3);
+				animation: tail 3000ms ease-in-out infinite, shooting 3000ms ease-in-out infinite;
+			}
+			.shooting_star::before,
+			.shooting_star::after {
+				content: "";
+				position: absolute;
+				top: calc(50% - 1px);
+				right: 0;
+				height: 2px;
+				background-image: linear-gradient(-45deg, rgba(0, 0, 255, 0), #f3edb3, rgba(0, 0, 255, 0));
+				transform:translateX(50%) rotateZ(45deg);
+				border-radius: 100%;
+				animation:shining 3000ms ease-in-out infinite;
+			}
+			.shooting_star::after{
+				transform:translateX(50%) rotateZ(-45deg);
+			}
+			.shooting_star:nth-child(1) {
+				top: calc(20% - -20px);
+				left: calc(30% - 130px);
+				animation-delay:4244ms;
+			}
+			.shooting_star:nth-child(1)::before, .shooting_star:nth-child(1)::after, .shooting_star:nth-child(1)::after {
+				animation-delay:4244ms;
+			}
+			.shooting_star:nth-child(2) {
+				top: calc(120% - -29px);
+				left: calc(50% - 95px);
+				animation-delay:9073ms;
+			}
+			.shooting_star:nth-child(2)::before, .shooting_star:nth-child(2)::after, .shooting_star:nth-child(2)::after {
+				animation-delay:9073ms;
+			}
+			.shooting_star:nth-child(3) {
+				top: calc(130% - 167px);
+				left: calc(50% - 53px);
+				animation-delay:4740ms;
+			}
+			.shooting_star:nth-child(3)::before, .shooting_star:nth-child(3)::after, .shooting_star:nth-child(3)::after {
+				animation-delay:4740ms;
+			}
+			.shooting_star:nth-child(4) {
+				top: calc(80% - -140px);
+				left: calc(80% - 131px);
+				animation-delay:4878ms;
+			}
+			.shooting_star:nth-child(4)::before, .shooting_star:nth-child(4)::after, .shooting_star:nth-child(4)::after {
+				animation-delay:4878ms;
+			}
+			.shooting_star:nth-child(5) {
+				top: calc(50% - 81px);
+				left: calc(20% - 294px);
+				animation-delay:3435ms;
+			}
+			.shooting_star:nth-child(5)::before, .shooting_star:nth-child(5)::after, .shooting_star:nth-child(5)::after {
+				animation-delay:3435ms;
+			}
+			.shooting_star:nth-child(6) {
+				top: calc(80% - -123px);
+				left: calc(50% - 288px);
+				animation-delay:9517ms;
+			}
+			.shooting_star:nth-child(6)::before, .shooting_star:nth-child(6)::after, .shooting_star:nth-child(6)::after {
+				animation-delay:9517ms;
+			}
+			.shooting_star:nth-child(7) {
+				top: calc(70% - -1px);
+				left: calc(60% - 67px);
+				animation-delay:7347ms;
+			}
+			.shooting_star:nth-child(7)::before, .shooting_star:nth-child(7)::after, .shooting_star:nth-child(7)::after {
+				animation-delay:7347ms;
+			}
+			.shooting_star:nth-child(8) {
+				top: calc(80% - 21px);
+				left: calc(40% - 159px);
+				animation-delay:7325ms;
+			}
+			.shooting_star:nth-child(8)::before, .shooting_star:nth-child(8)::after, .shooting_star:nth-child(8)::after {
+				animation-delay:7325ms;
+			}
+			.shooting_star:nth-child(9) {
+				top: calc(10% - 3px);
+				left: calc(50% - 500px);
+				animation-delay:442ms;
+			}
+			.shooting_star:nth-child(9)::before, .shooting_star:nth-child(9)::after, .shooting_star:nth-child(9)::after {
+				animation-delay:442ms;
+			}
+			.shooting_star:nth-child(10) {
+				top: calc(1% - 100px);
+				left: calc(30% - 1px);
+				animation-delay:3751ms;
+			}
+			.shooting_star:nth-child(10)::before, .shooting_star:nth-child(10)::after, .shooting_star:nth-child(10)::after {
+				animation-delay:3751ms;
+			}
+			.shooting_star:nth-child(11) {
+				top: calc(40% - 83px);
+				left: calc(70% - 134px);
+				animation-delay:4554ms;
+			}
+			.shooting_star:nth-child(11)::before, .shooting_star:nth-child(11)::after, .shooting_star:nth-child(11)::after{
+				animation-delay:4554ms;
+			}
+			.shooting_star:nth-child(12) {
+				top: calc(40% - -75px);
+				left: calc(70% - 68px);
+				animation-delay:6404ms;
+			}
+			.shooting_star:nth-child(12)::before, .shooting_star:nth-child(12)::after, .shooting_star:nth-child(12)::after{
+				animation-delay:6404ms;
+			}
+			.shooting_star:nth-child(13) {
+				top: calc(60% - 31px);
+				left: calc(40% - 233px);
+				animation-delay:7851ms;
+			}
+			.shooting_star:nth-child(13)::before, .shooting_star:nth-child(13)::after, .shooting_star:nth-child(13)::after{
+				animation-delay:7851ms;
+			}
+			.shooting_star:nth-child(14) {
+				top: calc(50% - 47px);
+				left: calc(50% - 164px);
+				animation-delay:2486ms;
+			}
+			.shooting_star:nth-child(14)::before, .shooting_star:nth-child(14)::after, .shooting_star:nth-child(14)::after{
+				animation-delay:2486ms;
+			}
+			.shooting_star:nth-child(15) {
+				top: calc(20% - 200px);
+				left: calc(40% - 500px);
+				animation-delay:3751ms;
+			}
+			.shooting_star:nth-child(15)::before, .shooting_star:nth-child(15)::after, .shooting_star:nth-child(15)::after{
+				animation-delay:3751ms;
+			}
+			@keyframes tail{
+			   0%{
+			      width:0;
+			   }
+			   30%{
+			      width:100px;
+			   }
+			   100%{
+			      width:0;
+			   }
+			}
+			@keyframes shining{
+			   0%{
+			      width:0;
+			   }
+			   30%{
+			      width:30px;
+			   }
+			   100%{
+			      width:0;
+			   }
+			}
+			@keyframes shooting{
+			   0%{
+			      transform:translateX(0);
+			   }
+			   100%{
+			      transform:translateX(300px);
+			   }
+			}
+			@keyframes sky{
+			   0%{
+			      transform: rotate(45deg);
+			   }
+			   0%{
+			      transform: rotate(405deg);
+			   }
+			}
+			#text_cloud{
+				background-position: center;
+				background-size: cover;
+				width: 100vw;
+				height: 100vh
+			}
+			
+			#text_cloud span{
+				/* color: transparent;
+				-webkit-text-stroke-width: 1px;
+				-webkit-text-stroke-color: white; */
+				opacity: 0.1;
+				color: white;
+			} 
+			#text_cloud span:hover{
+				text-shadow:0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ebf1ac, 
+						0 0 35px #e8f5b5, 0 0 40px #e7ec3c, 0 0 50px #edf142, 0 0 75px #ddf1a1;
+				color: white;
+				opacity: 1;
+				font-weight: bolder;
+			}         	
+         
 		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!-- cloud text effect -->
+		<script type="text/javascript" src="script/jqcloud-0.2.10.js"></script> 
 		<script>
 			$(function() {
+
+
+				$("body").click(function(){
+					location.href="/profile";
+				});
+				
+				var word_list = [
+				    {text: "Euni", weight:100},
+				    {text: "Winni", weight:49},
+				    {text: "UX/UI", weight:10},
+				    {text: "Duck", weight: 17},
+				    {text: "whine", weight: 25}
+				];
+				var text_list=["Java", "PHP", "C", "HTML5", "JavaScript", "Ajax", "Json", "Vue", "Bootstrap", "CSS3", "JSP", "Servlet3.0", "Oracle", "MySQL", "Spring4", "SpringBoot",
+								"MyBatis", "Tiles3", "jQuery", "Hibernate", "JPA", "struts2", "Apache", "Tomcat", "Intelij", "jdk", "Eclipse Luna", "Eclipse Mars", "jstl", 
+								"less", "NetBeans", "IDE", "STS", "Maven", "Gradle", "Git", "AndroidStudio", "sql Developer", "MySQL Workbench", "VisualStudio", "Edit plus"];
+				for ( var i in text_list) {
+					word_list.push({text:text_list[i], weight:text_list.length-i});
+				}
+				$("#text_cloud").jQCloud(word_list);
+				
+				$(document).on("mouseenter", "span", function(event) {
+					/* $(this).css({color:"red"});
+					console.log($(this).html()); */
+				});
+				
 			});
 		</script>
 	</head>
@@ -81,5 +324,23 @@
 			<div id="stars2"></div>
 			<div id="stars3"></div>
 		</section>
+		<div class="night">
+         <div class="shooting_star"></div>
+         <div class="shooting_star"></div>
+         <div class="shooting_star"></div>
+         <div class="shooting_star"></div>
+         <div class="shooting_star"></div>
+         <div class="shooting_star"></div>
+         <div class="shooting_star"></div>
+         <div class="shooting_star"></div>
+         <div class="shooting_star"></div>
+         <div class="shooting_star"></div>
+         <div class="shooting_star"></div>
+         <div class="shooting_star"></div>
+         <div class="shooting_star"></div>
+         <div class="shooting_star"></div>
+         <div class="shooting_star"></div>
+      </div>
+      <div id="text_cloud"></div>
 	</body>
 </html>

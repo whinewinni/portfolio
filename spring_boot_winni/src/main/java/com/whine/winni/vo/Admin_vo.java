@@ -56,6 +56,7 @@ public class Admin_vo {
 		this.name = name;
 	}
 	
+	@Override
 	public String toString() {
 		StringBuffer sb=new StringBuffer();
 		
