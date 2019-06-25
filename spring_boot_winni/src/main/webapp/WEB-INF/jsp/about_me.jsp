@@ -494,48 +494,48 @@
 				<!-- Grid column -->
 				<div class="mb-3 pics animation all 2">
 					<img class="img-fluid" src="img/aboutme/interest_img01.png" alt="Card image cap">
-					<span><p>May 3th, 2019</p><p>blahblahdkd</p></span>
+					<span><p>July 31st, 2017</p><p>blahblahdkd</p></span>
 				</div>
 				<!-- Grid column -->
 
 				<div class="mb-3 pics animation all 1">
 					<img class="img-fluid" src="img/aboutme/interest_img02.jpg" alt="Card image cap">
-					<span><p>May 3th, 2019</p><p>blahblahdkd</p></span>
+					<span><p>May 4th, 2014</p><p>blahblahdkd</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 1">
 					<img class="img-fluid" src="img/aboutme/interest_img03.png" alt="Card image cap">
-					<span><p>May 3th, 2019</p><p>blahblahdkd</p></span>
+					<span><p>July 2nd, 2017</p><p>blahblahdkd</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 2">
 					<img class="img-fluid" src="img/aboutme/interest_img04.png" alt="Card image cap">
-					<span><p>May 3th, 2019</p><p>blahblahdkd</p></span>
+					<span><p>May 3rd, 2017</p><p>blahblahdkd</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 2">
 					<img class="img-fluid" src="img/aboutme/interest_img05.jpg" alt="Card image cap">
-					<span><p>May 3th, 2019</p><p>blahblahdkd</p></span>
+					<span><p>May 3rd, 2019</p><p>blahblahdkd</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 1">
 					<img class="img-fluid" src="img/aboutme/interest_img06.png" alt="Card image cap">
-					<span><p>May 3th, 2019</p><p>blahblahdkd</p></span>
+					<span><p>May 27th, 2018</p><p>blahblahdkd</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 2">
 					<img class="img-fluid" src="img/aboutme/interest_img07.jpg" alt="Card image cap">
-					<span><p>May 3th, 2019</p><p>blahblahdkd</p></span>
+					<span><p>October 21st, 2017</p><p>blahblahdkd</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 2">
 					<img class="img-fluid" src="img/aboutme/interest_img08.jpg" alt="Card image cap">
-					<span><p>May 3th, 2019</p><p>blahblahdkd</p></span>
+					<span><p>Sepember 1st, 2014</p><p>blahblahdkd</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 2">
 					<img class="img-fluid" src="img/aboutme/interest_img09.jpg" alt="Card image cap">
-					<span><p>May 3th, 2019</p><p>blahblahdkd</p></span>
+					<span><p>July 10th, 2013</p><p>blahblahdkd</p></span>
 				</div>
 			</div>
 			<!-- Grid row -->

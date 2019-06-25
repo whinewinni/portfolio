@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
@@ -850,9 +851,8 @@
 			#wrap{
 				width: 60vw;
 				margin:0 auto;
-				/* height: 100vh; */
 				padding-top:20vh;
-				height: 100vh
+				height: 90vh
 			}
 			
 			/* search button */
@@ -1001,12 +1001,24 @@
 				background-color: #78c2ad;
 				border: none;
 			}
+			footer{
+				height: 10vh;
+				width: 100vw;
+				background-color:#78c2ad;
+				text-align: center;
+			}
+			footer span{
+				color: white;
+				line-height: 100px
+			}
 		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<!-- Boot strap -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<!-- Vue -->
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<!-- mousewheel -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
 		<script>
 			$(function() {
 
@@ -1024,19 +1036,38 @@
 						$("header nav").removeClass("stuck_menu");
 					}
 					
+					//스크롤 다운하면 아래로 내려가는 모션
+					/* if( 10 <=scroll_position && scroll_position >=100){
+						$("html, body").animate({scrollTop:$("#wrap").offset().top});
+					} */
+					
 					//스트룰 다운 && 100보다 높을경우.
 					if(scroll_position < scrollPos && 100 < scrollPos){
-						$("button#top_button").fadeIn();
+						$("button#top_button:not(:animated)").fadeIn();
 						setTimeout(function(){
-							$("button#top_button").fadeOut();
+							$("button#top_button:not(:animated)").fadeOut();
 						}, 4000);
 					}else{
-						$("button#top_button").fadeOut();
+						$("button#top_button:not(:animated)").fadeOut();
 					}
 					scrollPos = $(this).scrollTop(); // 현 위치값 저장
 				});
 				$("button#top_button").click(function(){ //top button click, position top
 					$("html, body").animate({scrollTop:0});
+				});
+				
+				
+				/* $(document).ready()는 $(window).load()보다 먼저 실행되지만,
+				$(document).ready()는 문서 안의 리소스가 다 로딩되기도 전에 실행되기 때문에, 
+				다 로딩이 된 후 작동되어야 하는 UI의 경우에는 문제가 생긴다.
+				$(window).on->DOM이 전부 로드된 시점에 실행된다 */
+				$(window).on("mousewheel",  function(e, delta){
+					var e_pageX=e.pageX;  //e는 마우스 좌표값
+					if(delta > 0){  //delta는 휠 방향 1이 up, -1이 down
+						$("html:not(:animated), body:not(:animated)").animate({scrollTop: 0});
+					}else{
+						$("html:not(:animated), body:not(:animated)").animate({scrollTop:$("#wrap").offset().top});
+					}
 				});
 				
 			});
@@ -1355,8 +1386,7 @@
 			</div>
 		</div>
 		<button class="btn btn-primary btn-sm" id="top_button" onfocus="this.blur()"><i class='fas'>&#xf077;</i><br />Top</button>
-		<footer style="width:100vw; height:200px; background-color:#b9dfd4"></footer>
-		
+		<footer><span>@ Copyright 2019 © Whine winni (Euni CHO) All Rights Reserved.</span></footer>
 	</body>
 	<script>
 		new Vue({
