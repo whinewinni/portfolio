@@ -21,6 +21,7 @@
 			header{
 				height: 100vh;
 				background-color: BLUE;
+				z-index:-1
 			}
 			header nav{
 				width: 100vw;
@@ -69,6 +70,40 @@
 				/* font-weight: bolder; */
 				transition:all 1s;
 			}
+			
+			header #header_bottom{
+				position: relative;
+				width: 60vw;
+				
+			}
+			header #header_bottom #mask_layer{
+				position: absolute;
+				top:10%;
+				left: 0;
+				width: 100%;
+				height: 100%
+			}
+			header #header_bottom #bg_video{
+				width: 100%;
+				position:absolute;
+				top: 0;
+				left: 0;
+				z-index:1
+			}
+			header #header_bottom #text{
+				font-size:20rem;
+				fill:#000;
+				z-index:3
+			}
+			header #header_bottom #masked{
+				mask:url("#mask_layer");
+				width: 100%;
+				height: 100%;
+				fill:blue;
+				z-index: 2
+			}
+			
+			
 			
 			nav#sub_menu{
 				width: 100%;
@@ -445,6 +480,17 @@
 				</ul>
 			</nav>
 			
+			<div id="header_bottom">
+				<svg id="svg">
+					<mask id="mask_layer">
+						<rect width="100%" height="100%" fill="#fff"></rect>
+						<text x="8%" y="55%" id="text">WhineWinni</text>
+					</mask>
+					<rect id="masked"></rect>
+				</svg>
+				<video id="bg_video" src="img/aboutme/under_the_sea.mp4" autoplay loop></video>
+			</div>
+			
 			<!-- The Modal -->
 			<div class="modal fade" id="contact_modal">
 				<div class="modal-dialog modal-dialog-centered">
@@ -494,48 +540,48 @@
 				<!-- Grid column -->
 				<div class="mb-3 pics animation all 2">
 					<img class="img-fluid" src="img/aboutme/interest_img01.png" alt="Card image cap">
-					<span><p>July 31st, 2017</p><p>blahblahdkd</p></span>
+					<span><p>July 31st, 2017</p><p>Beijing, China</p></span>
 				</div>
 				<!-- Grid column -->
 
 				<div class="mb-3 pics animation all 1">
 					<img class="img-fluid" src="img/aboutme/interest_img02.jpg" alt="Card image cap">
-					<span><p>May 4th, 2014</p><p>blahblahdkd</p></span>
+					<span><p>May 4th, 2014</p><p>Yongma Land</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 1">
 					<img class="img-fluid" src="img/aboutme/interest_img03.png" alt="Card image cap">
-					<span><p>July 2nd, 2017</p><p>blahblahdkd</p></span>
+					<span><p>July 2nd, 2017</p><p>Mui Ne, Vietnam</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 2">
 					<img class="img-fluid" src="img/aboutme/interest_img04.png" alt="Card image cap">
-					<span><p>May 3rd, 2017</p><p>blahblahdkd</p></span>
+					<span><p>May 3rd, 2017</p><p>Abu Dhabi, United Arab Emirates</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 2">
 					<img class="img-fluid" src="img/aboutme/interest_img05.jpg" alt="Card image cap">
-					<span><p>May 3rd, 2019</p><p>blahblahdkd</p></span>
+					<span><p>May 3rd, 2019</p><p>Areum's wedding</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 1">
 					<img class="img-fluid" src="img/aboutme/interest_img06.png" alt="Card image cap">
-					<span><p>May 27th, 2018</p><p>blahblahdkd</p></span>
+					<span><p>May 27th, 2018</p><p>Dubai, United Arab Emirates</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 2">
 					<img class="img-fluid" src="img/aboutme/interest_img07.jpg" alt="Card image cap">
-					<span><p>October 21st, 2017</p><p>blahblahdkd</p></span>
+					<span><p>October 21st, 2017</p><p>Busan</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 2">
 					<img class="img-fluid" src="img/aboutme/interest_img08.jpg" alt="Card image cap">
-					<span><p>Sepember 1st, 2014</p><p>blahblahdkd</p></span>
+					<span><p>Sepember 1st, 2014</p><p>Kota Kinabalum, Malaysia</p></span>
 				</div>
 
 				<div class="mb-3 pics animation all 2">
 					<img class="img-fluid" src="img/aboutme/interest_img09.jpg" alt="Card image cap">
-					<span><p>July 10th, 2013</p><p>blahblahdkd</p></span>
+					<span><p>July 10th, 2013</p><p>Vang Vieng, Laos</p></span>
 				</div>
 			</div>
 			<!-- Grid row -->

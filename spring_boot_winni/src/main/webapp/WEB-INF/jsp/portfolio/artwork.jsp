@@ -813,7 +813,7 @@
 				</div>
 			
 				<h2>Renewal Site for web Publishing</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, dolor molestiae distinctio, repellat suscipit in maiores quae eligendi ex minus atque! Animi, fuga ut sed, quasi maiores a tenetur similique:</p>
+				<p>기존의 웹사이트들을 미러링하면서 html과 css의 재구성하여 구조를 파악하고 jquery를 활용하여 모션을 구현하여 퍼블리싱을 위한 기초 지식을 탄탄하게 쌓았습니다.</p>
 				
 				<div id="logo_btns" class="btn-group" role="group" aria-label="Basic example">
 					<button type="button" class="btn-sm btn btn-outline-danger">Simplxr</button>
