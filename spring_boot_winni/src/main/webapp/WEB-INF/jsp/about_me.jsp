@@ -72,36 +72,26 @@
 			}
 			
 			header #header_bottom{
-				position: relative;
 				width: 60vw;
-				
+				background-color: red;
 			}
-			header #header_bottom #mask_layer{
-				position: absolute;
-				top:10%;
-				left: 0;
-				width: 100%;
-				height: 100%
-			}
+			
 			header #header_bottom #bg_video{
-				width: 100%;
-				position:absolute;
-				top: 0;
-				left: 0;
-				z-index:1
+				position: absolute;
+				left:0;
+				bottom: 0;
 			}
 			header #header_bottom #text{
-				font-size:20rem;
+				font-size:5rem;
 				fill:#000;
-				z-index:3
 			}
 			header #header_bottom #masked{
 				mask:url("#mask_layer");
 				width: 100%;
 				height: 100%;
-				fill:blue;
-				z-index: 2
+				fill:red
 			}
+			
 			
 			
 			
@@ -479,16 +469,16 @@
 					<li data-toggle="modal" data-target="#contact_modal">Contact</button></li>
 				</ul>
 			</nav>
-			
+			                                                                                                                                                                                                                                                                                           
 			<div id="header_bottom">
 				<svg id="svg">
 					<mask id="mask_layer">
 						<rect width="100%" height="100%" fill="#fff"></rect>
-						<text x="8%" y="55%" id="text">WhineWinni</text>
+						<text x="8%" y="55%" id="text">Whine</text>
 					</mask>
 					<rect id="masked"></rect>
 				</svg>
-				<video id="bg_video" src="img/aboutme/under_the_sea.mp4" autoplay loop></video>
+				<video id="bg_video" src="img/aboutme/under_the_sea.mp4" autoplay loop muted></video>
 			</div>
 			
 			<!-- The Modal -->
