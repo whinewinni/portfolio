@@ -73,27 +73,39 @@
 			
 			header #header_bottom{
 				width: 60vw;
-				background-color: red;
+				background-color: blue;
+				height: 100%
 			}
-			
+			header #header_bottom svg#svg{
+				position: absolute;
+				z-index: 1;
+				bottom: 0;
+			}
+			header #header_bottom svg mask#mask_layer rect{
+				width: 100%;
+				height: 100%;
+				fill:#fff;
+			}
 			header #header_bottom #bg_video{
 				position: absolute;
 				left:0;
 				bottom: 0;
+				width: 65vw
 			}
 			header #header_bottom #text{
-				font-size:5rem;
+				font-size:1rem;
 				fill:#000;
+				font-family: 'Nanum Pen Script', cursive;
+				font-weight: bolder;
+				letter-spacing: -1px
+				
 			}
 			header #header_bottom #masked{
 				mask:url("#mask_layer");
-				width: 100%;
-				height: 100%;
-				fill:red
+				width:100%;
+				height:100%;
+				fill:blue;
 			}
-			
-			
-			
 			
 			nav#sub_menu{
 				width: 100%;
@@ -219,6 +231,7 @@
 				text-align: center;
 				font-family: 'Nanum Pen Script', cursive;
 				color: gray;
+				z-index: 1
 			}
 			#motive_wrap .row #motive_text ul{
 				width:90%;
@@ -261,6 +274,7 @@
 				background-image:linear-gradient(90deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 				animation: turn01 2s infinite;
 				transition:all 2s;
+				z-index: -1
 			}
 			#motive_wrap #circle #box02{
 				width: 600px;
@@ -271,6 +285,7 @@
 				transition:all 2s;
 				position: absolute;
 				top:50%;
+				z-index: -2
 			}
 			#motive_wrap #circle #box02:hover, #motive_wrap #circle #box01:hover{
 				animation: turn02 2s infinite linear;
@@ -471,10 +486,10 @@
 			</nav>
 			                                                                                                                                                                                                                                                                                           
 			<div id="header_bottom">
-				<svg id="svg">
+				<svg id="svg" viewBox="0 0 50 20">
 					<mask id="mask_layer">
-						<rect width="100%" height="100%" fill="#fff"></rect>
-						<text x="8%" y="55%" id="text">Whine</text>
+						<rect></rect>
+						<text x="1%" y="80%" id="text">WHINE</text>
 					</mask>
 					<rect id="masked"></rect>
 				</svg>
