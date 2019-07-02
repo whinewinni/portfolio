@@ -304,7 +304,8 @@
 				];
 				var text_list=["Java", "PHP", "C", "HTML5", "JavaScript", "Ajax", "Json", "Vue", "Bootstrap", "CSS3", "JSP", "Servlet3.0", "Oracle", "MySQL", "Spring4", "SpringBoot",
 								"MyBatis", "Tiles3", "jQuery", "Hibernate", "JPA", "struts2", "Apache", "Tomcat", "Intelij", "jdk", "Eclipse Luna", "Eclipse Mars", "jstl", 
-								"less", "NetBeans", "IDE", "STS", "Maven", "Gradle", "Git", "AndroidStudio", "sql Developer", "MySQL Workbench", "VisualStudio", "Edit plus"];
+								"less", "NetBeans", "IDE", "STS", "Maven", "Gradle", "Git", "AndroidStudio", "sql Developer", "MySQL Workbench", "VisualStudio", "Edit plus", 
+								"Photoshop", "Illustrator", "Atom", "Bracket"];
 				for ( var i in text_list) {
 					word_list.push({text:text_list[i], weight:text_list.length-i});
 				}

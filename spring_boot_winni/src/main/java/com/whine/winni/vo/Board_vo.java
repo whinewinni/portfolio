@@ -12,8 +12,9 @@ import javax.persistence.Table;
 public class Board_vo {
 
 	@Id
+	@Column(name="seq_no")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int seq_no;
+	private int seqno;
 	
 	@Column(name="title")
 	private String title;
@@ -34,10 +35,10 @@ public class Board_vo {
 	private String password;
 	
 	public int getSeq_no() {
-		return seq_no;
+		return seqno;
 	}
 	public void setSeq_no(int seq_no) {
-		this.seq_no = seq_no;
+		this.seqno = seq_no;
 	}
 	public String getTitle() {
 		return title;
@@ -79,7 +80,7 @@ public class Board_vo {
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
-		sb.append("seq_no : ").append(seq_no).append("\n");
+		sb.append("seq_no : ").append(seqno).append("\n");
 		sb.append("title : ").append(title).append("\n");
 		sb.append("content : ").append(content).append("\n");
 		sb.append("date : ").append(date).append("\n");

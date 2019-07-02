@@ -14,7 +14,7 @@ import com.whine.winni.vo.Board_vo;
 public interface BoardRepository_interface extends JpaRepository<Board_vo, Integer>{
 	
 	//order by date desc
-	List<Board_vo> findAllByOrderByDateDesc();
+	List<Board_vo> findAllByOrderBySeqnoDesc();
 	
 	//like query
 	List<Board_vo> findAllByTitleContaining(String title);

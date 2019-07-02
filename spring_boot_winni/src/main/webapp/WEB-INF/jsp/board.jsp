@@ -932,13 +932,17 @@
 			}
 			table#board_list tbody tr td .collapse span{
 				display: block;
-				
+				width: 90%;
+				float: left;
+				word-wrap: break-word;				
 			}
 			table#board_list tbody tr td button#setting_btn{
 				float: right;
+				width: 5%
 			}
 			table#board_list tbody tr td #button_group{
 				float: right;
+				/* display: none; */
 			}
 			table#board_list tbody tr td #button_group button{
 				color: #78C2AD;
@@ -1247,12 +1251,15 @@
 							</button>
 							<div v-bind:id="'demo'+key" class="panel-collapse collapse" data-parent="#board_list">
 								<hr />
+								<button @click="set_seq_id(list[key].seq_no, list[key].id, key)" id="setting_btn" data-toggle="modal" data-target="#check_pwd_modal">
+									<i class='fas'>&#xf2fe;</i>
+								</button>
 								<span v-html="list[key].content">{{list[key].content}}</span>
 								<!-- <button @click="set_seq_id(list[key].seq_no, list[key].id , $event)" id="setting_btn" data-toggle="modal" data-target="#check_pwd_modal">
 									<i class='fas'  v-bind:id="'demo'+key">&#xf2fe;</i>
 								</button> -->
-								<div id="button_group" style="border: 1px solid green" data-toggle="modal" data-target="#check_pwd_modal">
-									<button type="button" class="btn btn-outline-primary btn-sm">Modify</button>
+								<div v-if="is_active[key]" id="button_group" style="border: 1px solid green" data-toggle="modal">
+									<button @click="get_modify_data(list[key].seq_no)" type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modify_modal">Modify</button>
 									<button @click="delete_data(list[key].seq_no)" type="button" class="btn btn-outline-primary btn-sm">Delete</button>
 								</div>
 							</div>	
@@ -1312,7 +1319,7 @@
 				<button id="write_btn" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#write_modal">write</button>
 			</div>
 			
-			<p id="lorem"> * Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+			<p id="lorem"> * 본 게시판은 Vue js로 작업하였으며, 주변 지인들이 내용을 작성하였습니다.</p>
 			
 			<!-- The insert Modal -->
 			<div class="modal" id="write_modal">
@@ -1360,7 +1367,7 @@
 				</div>
 			</div>
 			
-			<!-- The Modal -->
+			<!-- check password The Modal -->
 			<div class="modal fade" id="check_pwd_modal">
 				<div class="modal-dialog modal-sm">
 					<div class="modal-content">
@@ -1378,12 +1385,59 @@
 						
 						<!-- Modal footer -->
 						<div class="modal-footer">
-							<button @click="check_password()" type="button" class="btn btn-secondary" data-dismiss="modal">Check Password</button>
+							<button @click="check_password()" type="button" class="btn btn-primary" data-dismiss="modal">Check Password</button>
 						</div>
 					
 					</div>
 				</div>
 			</div>
+			
+			<!-- The update/modify Modal -->
+			<div class="modal" id="modify_modal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+					    
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title">Modify</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+						
+						<!-- Modal body -->
+						<div class="modal-body">
+						
+							<div class="input-group flex-nowrap">
+								<div class="input-group-prepend">
+									<span class="input-group-text">ID</span>
+								</div>
+								<input v-model="id"  type="text" class="form-control input-sm" placeholder="id">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Password</span>
+								</div>
+								<input v-model="password" type="text" class="form-control input-sm" placeholder="password">
+							</div>
+							
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">title</span>
+								</div>
+								<input v-model="title" type="text" class="form-control input-sm" placeholder="title">
+							</div>
+							
+							<label for="content">Content:</label>
+							<textarea v-model="content" class="form-control" rows="5" id="content" placeholder="content"></textarea>
+							
+						</div>
+						
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<button @click="modify_data()" type="button" class="btn btn-primary" data-dismiss="modal">Update</button>
+						</div>
+					  
+					</div>
+				</div>
+			</div>
+		
 		</div>
 		<button class="btn btn-primary btn-sm" id="top_button" onfocus="this.blur()"><i class='fas'>&#xf077;</i><br />Top</button>
 		<footer><span>@ Copyright 2019 © Whine winni (Euni CHO) All Rights Reserved.</span></footer>
@@ -1398,19 +1452,26 @@
 				password:"",
 				title:"",
 				content:"",
+				
 				//check password
 				check_pwd:"",
 				check_seq:"",
+				check_key:"",
 				check_id:"",
+				is_active:[],
 
-				//is_active:false
 				search:"",
 				
 				total_page:0,
 				page:0
 			},
 			mounted:function(){
-				this.board_list();
+				this.board_list(); 
+
+				var map = new Map();
+				map.set("a", "bbbbbbbbbbbbbbbb");
+				map.set("b", "cccccccccccccccccc");
+				console.log(map.get("a"));
 			},
 			methods:{
 				board_list : function(page){
@@ -1429,6 +1490,17 @@
 							self.page=data.number;
 							collapse_hide();
 							console.log("total_page ="+self.total_page);
+
+
+							//is_active
+							self.is_active = new Array();
+							for(var i=0; i<7; i++){
+								self.is_active[i] = false;
+							}
+							console.log("is_active : " + self.is_active);
+							console.log("total " + data.totalElements);
+							console.log("is total  "+ self.is_active.length)
+
 						},
 						error:function(outcome_msg){
 							console.log("ajax error - "+outcome_msg);
@@ -1459,8 +1531,42 @@
 							console.log(msg);
 						}
 					});
-				}, //end insert_content
-				delete_data: function(seq){
+				}, //end insert_content 
+				set_seq_id : function(seq, id, key){
+					check_seq=seq;
+					check_id=id;
+					check_key=key;
+				},
+				check_password : function(){
+					var self=this;
+					/* console.log(check_id);
+					console.log(check_seq);
+					console.log("===> " + check_key);
+					console.log(this.check_pwd); */
+
+					$.ajax({
+						url:"http://localhost:8080/check_pwd",
+						method:"post",
+						data:{
+							seq_no:check_seq,
+							id:check_id,
+							password:this.check_pwd
+						},
+						success:function(data){
+							self.check_pwd="";
+							if(data==1){
+								self.is_active[check_key]=true;
+							}else{
+								alert("비밀번호가 틀렸습니다.");
+								self.is_active=false;
+							}
+						},error:function(){
+							self.check_pwd="";
+							console.log("check_password error");
+						}
+					});
+				},  //end check_password
+				/* delete_data: function(seq){
 					var self=this;
 					$.ajax({
 						//url:"http://localhost:8080/delete_data",
@@ -1474,7 +1580,54 @@
 							console.log(msg);
 						}
 					});
-				}, //end delete_data
+				},  //end delete_data */ 
+				get_modify_data: function(no){
+					var self=this;
+					console.log("modify seq>>"+no);
+					$.ajax({
+						url:"http://localhost:8080/get_modify_data",
+						method:"get",
+						data:{seq_no:no},
+						success:function(data){
+							//self.total_page=data.totalPages;
+							self.id=data.id;
+							self.password=data.password;
+							self.title=data.title;
+							self.content=data.content;
+							console.log(data);
+						},
+						error:function(){
+							console.log("에놇ㅣㅓㅠㅁㅇ히ㅓㅗㅎ유리ㅓㅇㅎ류");
+						}
+					});
+				},
+				modify_data:function(){
+					var self=this;
+					console.log("modify seq>>"+check_seq);
+					$.ajax({
+						url:"http://localhost:8080/save",
+						method:"post",
+						data:{
+							seq_no:check_seq,
+							id:this.id, 
+							password:this.password, 
+							title:this.title, 
+							content:this.content
+						},
+						success:function(data){
+							self.id="";
+							self.password="";
+							self.title="";
+							self.content="";
+							self.board_list(self.page);
+						},error:function(){
+							console.log("sdfJKhgxdbfsljzsdfgbljfsbdjhbsdf,hjl");
+						}
+					});
+
+					
+					
+				},
 				update_hit:function(num){
 					var self=this;
 					$.ajax({
@@ -1485,44 +1638,7 @@
 							self.board_list(self.page);
 						},error:function(){}
 					});
-				},//end update_hit
-				set_seq_id : function(seq, id, event){
-					check_seq=seq;
-					check_id=id;
-					console.log(event.path[2].id);
-				},
-				check_password : function(){
-					var self=this;
-					console.log(check_id);
-					console.log(check_seq);
-					console.log(this.check_pwd);
-
-					$.ajax({
-						url:"http://localhost:8080/check_pwd",
-						method:"post",
-						data:{
-							seq_no:check_seq,
-							id:check_id,
-							password:this.check_pwd
-						},
-						success:function(data){
-							self.check_pwd="";
-							console.log(data);
-							console.log("check_password success");
-							
-							if(data==1){
-								//$("table#board_list tbody tr td button#setting_btn + div#button_group").css({display:"block"});
-								self.is_active=true;
-							}else{
-								self.is_active=false;
-							}
-							
-						},error:function(){
-							self.check_pwd="";
-							console.log("check_password error");
-						}
-					});
-				}   //end check_password
+				}//end update_hit
 			} //end methods
 		});
 	</script>

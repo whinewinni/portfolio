@@ -51,12 +51,16 @@ public class Board_controller {
 	@CrossOrigin
 	@RequestMapping(value="/get_list")
 	public @ResponseBody Page<Board_vo> get_list(Model model, 
-			@PageableDefault(sort= {"date"}, direction=Direction.DESC, size=7) Pageable pageable, 
+			@PageableDefault(sort= {"seqno"}, direction=Direction.DESC, size=7) Pageable pageable, 
 			@RequestParam(defaultValue = "") String search) {
 		Page<Board_vo> board_list = board_repository.select_list(search, pageable);
 		//pageable.getPageSize()-1;
 		
+		
+		System.out.println("=====================> " + board_list.getSize());
+		
 		for(Board_vo vo : board_list) { ///날짜 형식 포멧
+			System.out.println(vo);
 			String date=vo.getDate().split(" ")[0];
 			vo.setDate(date);
 		}
@@ -66,13 +70,22 @@ public class Board_controller {
 	@CrossOrigin
 	@RequestMapping(value="/save", method=RequestMethod.POST)
 	public @ResponseBody String insert_data(Board_vo vo) {
-		
+		System.out.println("==============================");
 		String content=vo.getContent().replaceAll("(\r\n|\r|\n|\n\r)", "<br/>");
 		vo.setContent(content);
 		
 		vo.setDate(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 		board_repository.insert_data(vo);
 		return "insert_data()";
+	}
+	@CrossOrigin
+	@RequestMapping(value="/update", method=RequestMethod.POST)
+	public @ResponseBody String update_data(Board_vo vo) {
+		String content=vo.getContent().replaceAll("(\r\n|\r|\n|\n\r)", "<br/>");
+		vo.setContent(content);
+		
+		board_repository.insert_data(vo);
+		return "update_data()";
 	}
 	
 	@CrossOrigin
@@ -100,8 +113,18 @@ public class Board_controller {
 		return Integer.toString(result);
 	}
 	
+	@CrossOrigin
+	@RequestMapping(value="get_modify_data", method=RequestMethod.GET)
+	public @ResponseBody Board_vo get_modify_info(int seq_no) {
+		
+		System.out.println(seq_no);
+		Board_vo vo=board_repository.select_one(seq_no);
+		return vo;
+	}
 	
-
+	
+	
+	
 	
 	
 	@CrossOrigin

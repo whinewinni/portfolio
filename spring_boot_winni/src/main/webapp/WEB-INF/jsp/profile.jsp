@@ -662,7 +662,7 @@
 				</div>
 				<div class="card half_card">
 					<div class="card-header bg-primary text-white">Tools</div>
-					<div class="card-body">Intelij, jdk, Eclipse Luna/Mars, NetBeans IDE 8.02, STS, Maven, Gradle, Git , AndroidStudio, sql Developer, MySQL Workbench, VisualStudio2012, Edit plus</div> 
+					<div class="card-body">Intelij, jdk, Eclipse Luna/Mars, NetBeans IDE 8.02, STS, Maven, Gradle, Git, AndroidStudio, sql Developer, MySQL Workbench, VisualStudio2012, Edit plus, Photoshop, Illustrator, Atom, Bracket</div> 
 				</div>
 			</div>
 		</div>
