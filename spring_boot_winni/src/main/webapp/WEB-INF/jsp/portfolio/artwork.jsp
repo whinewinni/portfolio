@@ -806,14 +806,14 @@
 			<div id="reneal_right">
 				<div id="spinner_grow">
 					<div class="spinner-grow text-danger" role="status"></div>
+					<div class="spinner-grow text-danger fast" role="status"></div>
 					<div class="spinner-grow text-danger" role="status"></div>
-					<div class="spinner-grow text-danger" role="status"></div>
-					<div class="spinner-grow text-danger" role="status"></div>
+					<div class="spinner-grow text-danger fast" role="status"></div>
 					<div class="spinner-grow text-danger" role="status"></div>
 				</div>
 			
 				<h2>Renewal Site for web Publishing</h2>
-				<p>기존의 웹사이트들을 미러링하면서 html과 css의 재구성하여 구조를 파악하고 jquery를 활용하여 모션을 구현하여 퍼블리싱을 위한 기초 지식을 탄탄하게 쌓았습니다.</p>
+				<p>&nbsp;기존의 웹사이트들을 리뉴얼하면서 HTML과 CSS의 재구성하여 구조를 파악하고 jQuery를 활용, 다양한 모션을 구현하여 퍼블리싱을 위한 기초 지식을 탄탄하게 쌓았습니다.</p>
 				
 				<div id="logo_btns" class="btn-group" role="group" aria-label="Basic example">
 					<button type="button" class="btn-sm btn btn-outline-danger">Simplxr</button>

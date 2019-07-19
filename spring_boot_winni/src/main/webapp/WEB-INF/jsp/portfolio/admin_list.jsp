@@ -88,7 +88,7 @@
 	        		</li>
 				</c:forEach>
 				
-        		<li class="list-group-item">
+        		<!-- <li class="list-group-item">
         			<img class='list_img' src='img/artwork/m01.png'>
         			<div id="img_title">first img file</div>
                     <button type="button" class="btn btn-danger btn-sm">Delete</button>
@@ -97,7 +97,7 @@
         			<img class='list_img' src='img/artwork/m01.png'>
         			<div id="img_title">first img file</div>
                     <button type="button" class="btn btn-danger btn-sm">Delete</button>
-        		</li>
+        		</li> -->
         		
 			</ul>
 			
