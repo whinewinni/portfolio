@@ -16,6 +16,8 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 		<!--  skill graph -->
 		<link rel="stylesheet" href="https://www.koolchart.com/demo/KoolChart/Assets/Css/KoolChart.css"/>
+		<!-- new skill graph "https://cdn.jsdelivr.net/npm/apexcharts" -->
+		<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 		<!-- Awesome Font -->
 		<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 		<style>
@@ -1046,8 +1048,12 @@
 		<div id="skill_wrap">
 			<div id="skill_graph" style="height:100%;">
 				<h2>Skills</h2>
-				<div id="chartHolder" style="height:500px; width:100%;"></div>
+				<!-- new skill graph -->
+				<div id="chart"></div>
+				<!-- <div id="chartHolder" style="height:500px; width:100%;"></div> -->
 			</div>
+			
+			
 			
 			<div id="skill_tables">
 				<div class="card half_card">
@@ -1255,7 +1261,9 @@
 	
 	</body>
 	<script>
-	    var chartVars = "KoolOnLoadCallFunction=chartReadyHandler";
+
+		//----------------------그래프 지워야함--------------------//
+    	var chartVars = "KoolOnLoadCallFunction=chartReadyHandler";
 	
 	    KoolChart.create("chart1", "chartHolder", chartVars, "100%", "100%");
 	
@@ -1332,7 +1340,53 @@
 	       };
 	      }
 	     }
+		//----------------------그래프 지워야함--------------------//
+		//----------new graph start------------------------//
+		
+		var options = {
+		      chart: {
+		        height: 500,
+		        type: 'line',
+		      },
+		      series: [{
+		        name: 'Result Score',
+		        type: 'column',
+		        data: [70, 60, 40, 95, 90, 90, 60, 80, 50, 60]
+		      }, {
+		        name: 'Target Score',
+		        type: 'line',
+		        data: [95, 65, 90, 90, 80, 90, 70, 80, 60, 80]
+		      }],
+		      stroke: {
+		        width: [0, 2]
+		      },
+		      title: {
+		        text: 'Always trying to take a top position',
+				align: 'center'
+		      },
+		      xaxis: {
+		        categories: ['Java', 'PHP', 'C', 'HTML', 'CSS', 'jQuery', 'Vue', 'Ajax/json', 'java script', 'oracle']
+		      },
+		      yaxis: [{
+		        title: {
+		          text: 'Result Score',
+		        },
+		      }, {
+		        opposite: true,
+		        title: {
+		          text: 'Target Score'
+		        }
+		      }]
+		    }
 
+		    var chart = new ApexCharts(
+		      document.querySelector("#chart"),
+		      options
+		    );
+
+		    chart.render();
+		
+		//----------new graph end ------------------------//
 
 
 
