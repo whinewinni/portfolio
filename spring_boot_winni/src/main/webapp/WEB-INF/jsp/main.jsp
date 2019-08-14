@@ -9,6 +9,9 @@
 		
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" type="text/css" href="css/jqcloud.css" />
+		<!-- favicon -->
+		<link rel="shortcut icon" href="img/favicon.ico">
+		
 		<style>
 		
 			body{

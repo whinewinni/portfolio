@@ -16,6 +16,8 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 		<!--  skill graph -->
 		<link rel="stylesheet" href="https://www.koolchart.com/demo/KoolChart/Assets/Css/KoolChart.css"/>
+		<!-- new skill graph "https://cdn.jsdelivr.net/npm/apexcharts" -->
+		<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 		<!-- Awesome Font -->
 		<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 		<style>
@@ -397,14 +399,20 @@
 			}
 			
 			@media all and ( max-width : 780px ){
-				
 				header nav ul#main_menu{
 					display: none;
 				}
 				header .hamburglar{
 					display: block;
 				}
-				
+			}
+			@media all and ( max-width : 600px ){
+				header nav h1{
+					margin-left: 2rem;
+				}
+				header .hamburglar{
+					right:2%
+				}
 			}
 			
 			
@@ -477,7 +485,7 @@
 				top: 110%
 			}
 			@keyframes scroll_motion {
-				form {
+				from {
 					height:100%;
 				}to{
 					height:0;
@@ -540,6 +548,12 @@
 				margin: 10% auto 0;
 				width:70%
 			}
+			#skill_wrap #chart{
+				width: 70%;
+				margin: 0 auto;
+			}
+			
+			/*---------------------------------------------------------------------------*/
 			.imageDiv{
 				width:100%;
 				height:100%;
@@ -547,6 +561,7 @@
 			.Kool__Main{
 				margin-top:2%
 			}
+			/*---------------------------------------------------------------------------*/
 			#skill_wrap{
 				overflow: hidden;
 			}
@@ -567,7 +582,14 @@
 			#skill_wrap #skill_tables .half_card:last-child{
 				width: 98%;
 			}
-			
+			@media all and ( max-width:900px ){
+				#skill_wrap #chart{
+					width: 100%
+				}
+				#skill_wrap #skill_tables{
+					width: 100%
+				}
+			}
 			
 			
 			#timeline .row .col-md-12 h2{
@@ -797,6 +819,7 @@
 					margin: 0 auto;
 				}
 			}
+			/*---------------------------------------------------------------------------*/
 			
 			button#top_button{
 				position: fixed;
@@ -837,7 +860,7 @@
 				});
 				
 				function burgerTime() {
-					if (isClosed == true) {
+					if (isClosed == true) {	
 						trigger.removeClass('is-open');
 						trigger.addClass('is-closed');
 						isClosed = false;
@@ -1072,8 +1095,11 @@
 		<div id="skill_wrap">
 			<div id="skill_graph" style="height:100%;">
 				<h2>Skills</h2>
-				<div id="chartHolder" style="height:500px; width:100%;"></div>
+				<!-- <div id="chartHolder" style="height:500px; width:100%;"></div> -->
 			</div>
+			
+			<!-- new skill graph -->
+			<div id="chart"></div>
 			
 			<div id="skill_tables">
 				<div class="card half_card">
@@ -1282,9 +1308,11 @@
 	</body>
 	<script>
 
-		var KoolChartLicense = "bcb0f5cbd7ea6287e6562b71e51fc15eec27ab954d6877eb6bcfaf97d7230ed8:6500300b33512044504542373a2d43354e334f3820434c2d56333a3032452e43302d2038503556453a384b3a354c2d20502a523a2d4536202e6d306f2063452e4c743a727461206843633a6c326f306f316b392e302a343a304838";
+		//var KoolChartLicense = "bcb0f5cbd7ea6287e6562b71e51fc15eec27ab954d6877eb6bcfaf97d7230ed8:6500300b33512044504542373a2d43354e334f3820434c2d56333a3032452e43302d2038503556453a384b3a354c2d20502a523a2d4536202e6d306f2063452e4c743a727461206843633a6c326f306f316b392e302a343a304838";
 	
-	    var chartVars = "KoolOnLoadCallFunction=chartReadyHandler";
+
+		//----------------------그래프 지워야함--------------------//
+    	var chartVars = "KoolOnLoadCallFunction=chartReadyHandler";
 	
 	    KoolChart.create("chart1", "chartHolder", chartVars, "100%", "100%");
 	
@@ -1361,6 +1389,82 @@
 	       };
 	      }
 	     }
+		//----------------------그래프 지워야함--------------------//
+		//----------new graph start------------------------//
+		
+		var options = {
+		      chart: {
+		        height: 500,
+		        type: 'line',
+		      },
+		      series: [{
+		        name: 'Result Score',
+		        type: 'column',
+		        data: [70, 60, 40, 95, 90, 90, 60, 80, 50, 60]
+		      }, {
+		        name: 'Target Score',
+		        type: 'line',
+		        data: [95, 65, 90, 90, 80, 90, 70, 80, 60, 80]
+		      }],
+		      stroke: {
+		        width: [0, 2]
+		      },
+		      title: {
+		        text: 'Always trying to take a top position',
+				align: 'center'
+		      },
+		      xaxis: {
+		        categories: ['Java', 'PHP', 'C', 'HTML', 'CSS', 'jQuery', 'Vue', 'Ajax/json', 'java script', 'oracle']
+		      },
+		      yaxis: [{
+		        title: {
+		          text: 'Result Score',
+		        },
+		      }, {
+		        opposite: true,
+		        title: {
+		          text: 'Target Score'
+		        }
+		      }]
+		    }
+
+		    var chart = new ApexCharts(
+		      document.querySelector("#chart"),
+		      options
+		    );
+
+		    chart.render();
+		
+		//----------new graph end ------------------------//
+
+
+
+
+		var map;
+	    $(window).on("load", function(e){
+	    //$(document).on('ready', function(){
+	    	
+			// map 
+			var container = document.getElementById("map"); //지도를 담을 영역의 DOM 레퍼런스
+			var options = { //지도를 생성할 때 필요한 기본 옵션
+				center: new kakao.maps.LatLng(37.597545, 127.079950), //지도의 중심좌표
+				level: 3 //지도의 레벨(확대, 축소 정도)
+			};					
+			map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+
+	    });
+	    function relayout() {    
+	        // 지도를 표시하는 div 크기를 변경한 이후 지도가 정상적으로 표출되지 않을 수도 있습니다
+	        // 크기를 변경한 이후에는 반드시  map.relayout 함수를 호출해야 합니다
+	        // window의 resize 이벤트에 의한 크기변경은 map.relayout 함수가 자동으로 호출됩니다
+	        map.relayout();
+	    }
+	    function resizeMap() {
+	        var mapContainer = document.getElementById('map');
+	        mapContainer.style.width = '650px';
+	        mapContainer.style.height = '650px'; 
+	    }
+		
 
 	</script>
 </html>

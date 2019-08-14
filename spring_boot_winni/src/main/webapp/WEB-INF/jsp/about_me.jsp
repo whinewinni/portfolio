@@ -76,6 +76,352 @@
 				transition:all 1s;
 			}
 			
+			/*-------------------------------------------------*/
+			
+			header .hamburglar {
+				transform: scale(1);
+				margin:20px auto;
+				position: absolute;
+				display: block;
+				width: 68px;
+				height: 68px;
+				/* background-color: red; */
+				user-select: none;
+				right:6%;
+				top: 0;
+				opacity: 0.8;
+				display: none;
+			}
+			header #hamburger .path-burger {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 68px;
+				width: 68px;
+				mask: url(#mask);
+			}
+			header #hamburge .path-burger .animate-path {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 68px;
+				height: 68px;
+			}
+			header #hamburge .path-burger .animate-path .path-rotation {
+				height: 34px;
+				width: 34px;
+				margin: 34px 34px 0 0;
+				transform: rotate(0deg);
+				transform-origin: 100% 0;
+			}
+			header #hamburge .path-burger .animate-path .path-rotation::before{
+					content: '';
+					display: block;
+					width: 30px;
+					height: 34px;
+					margin: 0 4px 0 0;
+					/* background-color: #fff; */
+			}	
+			@keyframes rotate-out {
+				0% {
+					transform: rotate(0deg);
+				}
+				40% {
+					transform: rotate(180deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+			@keyframes rotate-in {
+				0% {
+					transform: rotate(360deg);
+				}
+				40% {
+					transform: rotate(180deg);
+				}
+				100% {
+					transform: rotate(0deg);
+				}
+			}
+			header .hamburglar.is-open .path {
+				animation: dash-in 0.6s linear normal;
+				animation-fill-mode:forwards;
+			}
+			header .hamburglar.is-open .animate-path {
+				animation: rotate-in 0.6s linear normal;
+				animation-fill-mode:forwards;
+			}
+			header .hamburglar.is-closed .path {
+				animation: dash-out 0.6s linear normal;
+				animation-fill-mode:forwards;
+			}
+			header .hamburglar.is-closed .animate-path {
+				animation: rotate-out 0.6s linear normal;
+				animation-fill-mode:forwards;
+			}
+			header #hamburger .path {
+				stroke-dasharray: 240;
+				stroke-dashoffset: 240;
+				stroke-linejoin: round;
+			}
+			@keyframes dash-in {
+				0% {
+					stroke-dashoffset: 240;
+				}
+				40% {
+					stroke-dashoffset: 240;
+				}
+				100% {
+					stroke-dashoffset: 0;
+				}
+			}
+			@keyframes dash-out {
+				0% {
+					stroke-dashoffset: 0;
+				}
+				40% {
+					stroke-dashoffset: 240;
+				}
+				100% {
+					stroke-dashoffset: 240;
+				}
+			}
+			header #hamburger .burger-icon {
+				position: absolute;
+				padding: 20px 16px;
+				height: 68px;
+				width: 68px;
+			}
+			header #hamburger .burger-icon .burger-container {
+				position: relative;
+				height: 28px;
+				width: 36px;
+			}
+			header #hamburger .burger-icon .burger-container .burger-bun-top, 
+			header #hamburger .burger-icon .burger-container .burger-bun-bot, 
+			header #hamburger .burger-icon .burger-container .burger-filling {
+				position: absolute;
+				display: block;
+				height: 4px;
+				width: 36px;
+				border-radius: 2px;
+				background:#fff;
+			}
+			header #hamburger .burger-icon .burger-container .burger-bun-top {
+				top: 0;
+				transform-origin: 34px 2px;
+			}
+			header #hamburger .burger-icon .burger-container .burger-bun-bot {
+				bottom: 0;
+				transform-origin: 34px 2px;
+			}
+			header #hamburger .burger-icon .burger-container .burger-filling {
+				top: 12px;
+			}
+			header #hamburger .burger-ring {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 68px;
+				height: 68px;
+			}
+			header #hamburger .burger-ring .svg-ring {
+				width: 68px;
+				height: 68px;
+			}
+			header .hamburglar.is-open .burger-bun-top {
+				animation: bun-top-out 0.6s linear normal;
+				animation-fill-mode:forwards;
+			}
+			header .hamburglar.is-open .burger-bun-bot {
+				animation: bun-bot-out 0.6s linear normal;
+				animation-fill-mode:forwards;
+			}
+			header .hamburglar.is-closed  .burger-bun-top {
+				animation: bun-top-in 0.6s linear normal;
+				animation-fill-mode:forwards;
+			}
+			header .hamburglar.is-closed .burger-bun-bot {
+				animation: bun-bot-in 0.6s linear normal;
+				animation-fill-mode:forwards;
+			}
+			@keyframes bun-top-out {
+				0% {
+					left: 0;
+					top: 0;
+					transform: rotate(0deg);
+				}
+				20% {
+					left: 0;
+					top: 0;
+					transform: rotate(15deg);
+				}
+				80% {
+					left: -5px;
+					top: 0;
+					transform: rotate(-60deg);
+				}
+				100% {
+					left: -5px;
+					top: 1px;
+					transform: rotate(-45deg);
+				}
+			}
+			@keyframes bun-bot-out {
+				0% {
+					left: 0;
+					transform: rotate(0deg);
+				}
+				20% {
+					left: 0;
+					transform: rotate(-15deg);
+				}
+				80% {
+					left: -5px;
+					transform: rotate(60deg);
+				}
+				100% {
+					left: -5px;
+					transform: rotate(45deg);
+				}
+			}
+			@keyframes bun-top-in {
+				0% {
+					left: -5px;
+					bot: 0;
+					transform: rotate(-45deg);
+				}
+				20% {
+					left: -5px;
+					bot: 0;
+					transform: rotate(-60deg);
+				}
+				80% {
+					left: 0;
+					bot: 0;
+					transform: rotate(15deg);
+				}
+				100% {
+					left: 0;
+					bot: 1px;
+					transform: rotate(0deg);
+				}
+			}
+			@keyframes bun-bot-in {
+				0% {
+					left: -5px;
+					transform: rotate(45deg);
+				}
+				20% {
+					left: -5px;
+					bot: 0;
+					transform: rotate(60deg);
+				}
+				80% {
+					left: 0;
+					bot: 0;
+					transform: rotate(-15deg);
+				}
+				100% {
+					left: 0;
+					transform: rotate(0deg);
+				}
+			}
+			header .hamburglar.is-open .burger-filling {
+				animation: burger-fill-out 0.6s linear normal;
+				animation-fill-mode:forwards;
+			}
+			header .hamburglar.is-closed .burger-filling {
+				animation: burger-fill-in 0.6s linear normal;
+				animation-fill-mode:forwards;
+			}
+			@keyframes burger-fill-in {
+				0% {
+					width: 0;
+					left: 36px;
+				}
+				40% {
+					width: 0;
+					left: 40px;
+				}
+				80% {
+					width: 36px;
+					left: -6px;
+				}
+				100% {
+					width: 36px;
+					left: 0px;
+				}
+			}
+			@keyframes burger-fill-out {
+				0% {
+					width: 36px;
+					left: 0px;
+				}
+				20% {
+					width: 42px;
+					left: -6px;
+				}
+				40% {
+					width: 0;
+					left: 40px;
+				}
+				100% {
+					width: 0;
+					left: 36px;
+				}
+			}
+			header #hamburger_menu{
+				width: 100%;
+				background-color:blue;
+				position: absolute;
+				top:100px;
+				display: none;
+				padding-right: 5%;
+				z-index: 10
+			}
+			header #hamburger_menu ul#burger_menu{
+				color: white;
+				height: 100%;
+				float: right;
+				font-size:1.5rem;
+				margin-right: 5%;
+				text-align: right;
+			}
+			header #hamburger_menu ul#burger_menu li{
+				float: none;
+				border-bottom: 2px dashed #bde0ef7d
+			}
+			header #hamburger_menu ul#burger_menu li a{
+				color: white;
+				text-decoration: none;
+			}
+			
+			@media all and ( max-width : 780px ){
+				header nav ul#main_menu{
+					display: none;
+				}
+				header .hamburglar{
+					display: block;
+				}
+			}
+			@media all and ( max-width : 600px ){
+				header nav h1{
+					margin-left: 2rem;
+				}
+				header .hamburglar{
+					right:2%
+				}
+			}
+			
+			/*-------------------------------------------------*/
+			
+			
+			
+			
+			
+			
 			header #header_bottom{
 				width: 60vw;
 				background-color: blue;
@@ -103,7 +449,6 @@
 				font-family: 'Nanum Pen Script', cursive;
 				font-weight: bolder;
 				letter-spacing: -1px
-				
 			}
 			header #header_bottom #masked{
 				mask:url("#mask_layer");
@@ -312,7 +657,14 @@
 						transform: rotate(0deg);
 				}
 			}
-			
+			media all and ( max-width:700px ){
+				#motive_wrap .row #motive_text ul li{
+					font-size: 1.5rem
+				}
+				#motive_wrap .row #motive_text ul li h4{
+					font-size: 3.5rem
+				}
+			}
 
 			/***************** Accordion ********************/
 			/***********************************************/
@@ -420,6 +772,28 @@
 		<script>
 			$(function() {
 
+				var trigger = $('header #hamburger');
+				var isClosed = false;
+				
+				trigger.click(function () {
+					burgerTime();
+				});
+				
+				function burgerTime() {
+					if (isClosed == true) {
+						trigger.removeClass('is-open');
+						trigger.addClass('is-closed');
+						isClosed = false;
+						$("header #hamburger_menu").slideUp();
+					} else {
+						trigger.removeClass('is-closed');
+						trigger.addClass('is-open');
+						isClosed = true;
+						$("header #hamburger_menu").slideDown();
+					}
+				}
+				
+
 				var focus="html, body"; //sub menu button click event
 				$("nav#sub_menu ol.nav li").eq(0).click(function(){
 					$(focus).animate({scrollTop:$("#gallery").offset().top-200});
@@ -480,7 +854,7 @@
 						</svg>
 					</a>
 				</h1>
-				<ul>
+				<ul id="main_menu"> 
 					<li><a href="profile">Profile</a></li>
 					<!-- winni cho랑 about me는 합칠것  -->
 					<li><a href="about_me">About me</a></li>
@@ -488,6 +862,42 @@
 					<li><a href="board">Board</a></li>
 					<li data-toggle="modal" data-target="#contact_modal">Contact</button></li>
 				</ul>
+				<div id="hamburger" class="hamburglar is-closed">
+					<div class="burger-icon">
+						<div class="burger-container">
+							<span class="burger-bun-top"></span>
+							<span class="burger-filling"></span>
+							<span class="burger-bun-bot"></span>
+						</div>
+					</div>
+					<!-- svg ring containter -->
+					<div class="burger-ring">
+						<svg class="svg-ring">
+							<path class="path" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" d="M 34 2 C 16.3 2 2 16.3 2 34 s 14.3 32 32 32 s 32 -14.3 32 -32 S 51.7 2 34 2" />
+			      		</svg>
+					</div>
+					<!-- the masked path that animates the fill to the ring -->
+					<svg width="0" height="0">
+						<mask id="mask">
+							<path xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ff0000" stroke-miterlimit="10" stroke-width="2" d="M 34 2 c 11.6 0 21.8 6.2 27.4 15.5 c 2.9 4.8 5 16.5 -9.4 16.5 h -4" />
+						</mask>
+					</svg>
+					<div class="path-burger">
+						<div class="animate-path">
+							<div class="path-rotation"></div>
+						</div>
+					</div>
+				</div> <!-- end hamburglar -->
+				<div id="hamburger_menu">
+					<ul id="burger_menu">
+						<li><a href="profile">Profile</a></li>
+						<!-- winni cho랑 about me는 합칠것  -->
+						<li><a href="about_me">About me</a></li>
+						<li><a href="artwork">Portfolio</a></li>
+						<li><a href="board">Board</a></li>
+						<li data-toggle="modal" data-target="#contact_modal">Contact</button></li>
+					</ul>
+				</div>
 			</nav>
 			                                                                                                                                                                                                                                                                                           
 			<div id="header_bottom">
