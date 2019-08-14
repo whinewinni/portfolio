@@ -894,6 +894,32 @@
 				    this.setAttribute("data-heading", this.innerText);
 				});
 
+
+				var map;
+			    $(window).on("load", function(e){
+			    //$(document).on('ready', function(){
+			    	
+					// map 
+					var container = document.getElementById("map"); //지도를 담을 영역의 DOM 레퍼런스
+					var options = { //지도를 생성할 때 필요한 기본 옵션
+						center: new kakao.maps.LatLng(37.597545, 127.079950), //지도의 중심좌표
+						level: 3 //지도의 레벨(확대, 축소 정도)
+					};					
+					map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+
+			    });
+			    function relayout() {    
+			        // 지도를 표시하는 div 크기를 변경한 이후 지도가 정상적으로 표출되지 않을 수도 있습니다
+			        // 크기를 변경한 이후에는 반드시  map.relayout 함수를 호출해야 합니다
+			        // window의 resize 이벤트에 의한 크기변경은 map.relayout 함수가 자동으로 호출됩니다
+			        //map.relayout();
+			    }
+			    function resizeMap() {
+			        //var mapContainer = document.getElementById('map');
+			        //mapContainer.style.width = '650px';
+			        //mapContainer.style.height = '650px'; 
+			    }
+
 			});
 		</script>
 	</head>
@@ -1022,7 +1048,7 @@
 				<div id="profile_detail" class="col-sm-8"> 
 					<h2>Winni CHO</h2>
 					<small>
-						<button onclick="relayout()" type="button" class="btn" data-toggle="collapse" data-target="#map_collapse" onfocus="this.blur()">
+						<button type="button" class="btn" data-toggle="collapse" data-target="#map_collapse" onfocus="this.blur()">
 								<cite title="you can see where I live when u click!">Seoul, Republic of Korea <i class="material-icons">&#xe568;</i></cite>
 						</button>
 					</small>
@@ -1255,6 +1281,9 @@
 	
 	</body>
 	<script>
+
+		var KoolChartLicense = "bcb0f5cbd7ea6287e6562b71e51fc15eec27ab954d6877eb6bcfaf97d7230ed8:6500300b33512044504542373a2d43354e334f3820434c2d56333a3032452e43302d2038503556453a384b3a354c2d20502a523a2d4536202e6d306f2063452e4c743a727461206843633a6c326f306f316b392e302a343a304838";
+	
 	    var chartVars = "KoolOnLoadCallFunction=chartReadyHandler";
 	
 	    KoolChart.create("chart1", "chartHolder", chartVars, "100%", "100%");
@@ -1332,36 +1361,6 @@
 	       };
 	      }
 	     }
-
-
-
-
-
-		var map;
-	    $(window).on("load", function(e){
-	    //$(document).on('ready', function(){
-	    	
-			// map 
-			var container = document.getElementById("map"); //지도를 담을 영역의 DOM 레퍼런스
-			var options = { //지도를 생성할 때 필요한 기본 옵션
-				center: new kakao.maps.LatLng(37.597545, 127.079950), //지도의 중심좌표
-				level: 3 //지도의 레벨(확대, 축소 정도)
-			};					
-			map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
-
-	    });
-	    function relayout() {    
-	        // 지도를 표시하는 div 크기를 변경한 이후 지도가 정상적으로 표출되지 않을 수도 있습니다
-	        // 크기를 변경한 이후에는 반드시  map.relayout 함수를 호출해야 합니다
-	        // window의 resize 이벤트에 의한 크기변경은 map.relayout 함수가 자동으로 호출됩니다
-	        map.relayout();
-	    }
-	    function resizeMap() {
-	        var mapContainer = document.getElementById('map');
-	        mapContainer.style.width = '650px';
-	        mapContainer.style.height = '650px'; 
-	    }
-		
 
 	</script>
 </html>
