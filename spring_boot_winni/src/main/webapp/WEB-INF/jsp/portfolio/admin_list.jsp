@@ -58,13 +58,38 @@
             	color: red;
             	font-size: small;
             }
+            
+            
+            @media all and (max-width:650px){
+            	#list{
+            		width: 90vw
+            	}
+            	#list #ul_list{
+            		width: 90vw
+            	}
+            
+            }
 		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<script>
 			$(function() {
-				
+
+				$(window).on("load", function(){
+					get_response();
+				});
+				$(window).resize(function(){
+					get_response();
+				});
+				function get_response(){
+					var browser=$(window).width();
+					if(browser <= 530 ){
+						$("#list #title button").html("<i class='fas'>&#xf0a8;</i> Back");
+					}else{
+						$("#list #title button").html("<i class='fas'>&#xf0a8;</i> Back to Portfolio page");
+					}
+				}
 			});
 		</script>
 	</head>

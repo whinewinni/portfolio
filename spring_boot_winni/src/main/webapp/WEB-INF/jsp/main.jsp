@@ -18,6 +18,7 @@
 				height: 100vh;
 				overflow: hidden;
 				background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+				cursor: pointer;
 			}
 			/* 배경 별들 */
 			#stars1{

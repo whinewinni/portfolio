@@ -485,61 +485,80 @@
 
 			#interest_img{
 				width: 70vw;
-				margin:10% auto 0;
+				display: flex;
+				margin: 100px auto 0;
 			}
-			.gallery {
-				-webkit-column-count: 4;
-				-moz-column-count: 4;
-				column-count: 4;
-				-webkit-column-width: 25%;
-				-moz-column-width:25%;
-				column-width: 25%;
-				width: 100%;
-				height:42rem;
-				border: 1px solid red
+			#interest_img #gallery_wrap .gallery_box{
+				float: left;
+				width: 24.5%;
 			}
-			.gallery .pics {
-				-webkit-transition: all 350ms ease;
-				transition: all 350ms ease;
-			}
-			.gallery .animation {
-				-webkit-transform: scale(1);
-				-ms-transform: scale(1);
-				transform: scale(1);
-			}
-
-
-			#interest_img #gallery .pics{
+			#interest_img #gallery_wrap .gallery_box .gallery_box01,
+			#interest_img #gallery_wrap .gallery_box .gallery_box02,
+			#interest_img #gallery_wrap .gallery_box .gallery_box03,
+			#interest_img #gallery_wrap .gallery_box .gallery_box04{
 				position: relative;
-				background-color: black;
-				transition:all 0.5s;
+				margin-left: 2%;
 			}
-			#interest_img #gallery .pics:hover img{
-				opacity: 0.6;
-				transition:all 0.3s;
+			#interest_img #gallery_wrap .gallery_box img{
+				width:100%;
+				margin:2.5%;
+				transition:all 1s
 			}
-			#interest_img #gallery .pics:hover span{
-				display: block;
-				transition:all 0.5s;
+			#interest_img #gallery_wrap .gallery_box div:hover img{
+				transition:all 1s;
+				filter: brightness(50%);
 			}
-			#interest_img #gallery .pics span{
-				width: 80%;
-				height: 80%;
+			#interest_img #gallery_wrap .gallery_box img ~ span{
+				display: none;
 				border: 1px solid white;
+				width:80%;
+				height:80%;
 				position: absolute;
 				top:50%;
 				left:50%;
 				transform:translate(-50%, -50%);
-				text-align: right;
-				display: none;
-				transition:all 0.5s;
+				transition:all 1s;
 			}
-			#interest_img #gallery .pics span p{
+			#interest_img #gallery_wrap .gallery_box div:hover span{
+				display: block;
+				transition:all 1s;
+			}
+			#interest_img #gallery_wrap .gallery_box img ~ span p{
 				color: white;
-				position: relative;
-				bottom: -50%;
-				right: 5%;
-				margin-bottom: 0;
+				text-align: right;
+				margin-right: 1%;
+				transition:all 1s;
+			}
+			#interest_img #gallery_wrap .gallery_box img ~ span p:last-child {
+				font-family: 'Nanum Pen Script', cursive;
+				font-size: 2rem;
+				line-height: 1.5rem
+			}
+			
+			@media all and ( max-width:900px ){
+				#interest_img{
+					width: 100vw;
+				}
+			}
+			@media all and ( max-width:600px ){
+				#interest_img #gallery_wrap{
+					display: grid;
+				}
+				#interest_img #gallery_wrap .gallery_box{
+					float: none;
+					width: 100%;
+					clear: both;
+				}
+				#interest_img #gallery_wrap .gallery_box img{
+					margin: 0;
+				}
+				#interest_img #gallery_wrap .gallery_box .gallery_box01,
+				#interest_img #gallery_wrap .gallery_box .gallery_box02,
+				#interest_img #gallery_wrap .gallery_box .gallery_box03,
+				#interest_img #gallery_wrap .gallery_box .gallery_box04{
+					height: 250px;
+					overflow: hidden;
+				}
 			}
 
 			#motive_wrap{
@@ -614,7 +633,7 @@
 			
 			#motive_wrap #circle{
 				position: absolute;
-				top: 43%;
+				top: 45%;
 				left: -33%
 			}
 			#motive_wrap #circle #box01{
@@ -665,6 +684,18 @@
 					font-size: 3.5rem
 				}
 			}
+			
+			@media all and (max-width:680px){
+				#motive_wrap .row #motive_text ul li{
+					font-size: 2rem
+				}
+				#motive_wrap .row #motive_text ul li h4{
+					font-size: 3.5rem
+				}
+			}
+			
+			
+			
 
 			/***************** Accordion ********************/
 			/***********************************************/
@@ -953,58 +984,52 @@
 		</nav>
 
 		<div id="interest_img">
-
-			<!-- Grid row -->
-			<div class="gallery" id="gallery">
-
-				<!-- Grid column -->
-				<div class="mb-3 pics animation all 2">
-					<img class="img-fluid" src="img/aboutme/interest_img01.png" alt="Card image cap">
-					<span><p>July 31st, 2017</p><p>Beijing, China</p></span>
+			<div id="gallery_wrap">
+				<div class="gallery_box" id="gallery_box01">
+					<div class="gallery_box01" id="box01_pic01">
+						<img src="img/aboutme/interest_img01.png" alt="gallery image">
+						<span><p>July 31st, 2017</p><p>Beijing, China</p></span>
+					</div>
+					<div class="gallery_box01" id="box01_pic02">
+						<img src="img/aboutme/interest_img02.jpg" alt="gallery image">
+						<span><p>May 4th, 2014</p><p>Yongma Land</p></span>
+					</div>
 				</div>
-				<!-- Grid column -->
-
-				<div class="mb-3 pics animation all 1">
-					<img class="img-fluid" src="img/aboutme/interest_img02.jpg" alt="Card image cap">
-					<span><p>May 4th, 2014</p><p>Yongma Land</p></span>
+				<div class="gallery_box" id="gallery_box02">
+					<div class="gallery_box02" id="box02_pic01">
+						<img src="img/aboutme/interest_img03.png" alt="gallery image">
+						<span><p>July 2nd, 2017</p><p>Mui Ne, Vietnam</p></span>
+					</div>
+					<div class="gallery_box02" id="box02_pic02">
+						<img src="img/aboutme/interest_img04.png" alt="gallery image">
+						<span><p>May 3rd, 2017</p><p>Abu Dhabi, United Arab Emirates</p></span>
+					</div>
 				</div>
-
-				<div class="mb-3 pics animation all 1">
-					<img class="img-fluid" src="img/aboutme/interest_img03.png" alt="Card image cap">
-					<span><p>July 2nd, 2017</p><p>Mui Ne, Vietnam</p></span>
+				<div class="gallery_box" id="gallery_box03">
+					<div class="gallery_box03" id="box03_pic01">
+						<img src="img/aboutme/interest_img05.jpg" alt="gallery image">
+						<span><p>May 3rd, 2019</p><p>Areum's wedding</p></span>
+					</div>
+					<div class="gallery_box03" id="box03_pic02">
+						<img src="img/aboutme/interest_img06.png" alt="gallery image">
+						<span><p>May 27th, 2018</p><p>Dubai, United Arab Emirates</p></span>
+					</div>
 				</div>
-
-				<div class="mb-3 pics animation all 2">
-					<img class="img-fluid" src="img/aboutme/interest_img04.png" alt="Card image cap">
-					<span><p>May 3rd, 2017</p><p>Abu Dhabi, United Arab Emirates</p></span>
-				</div>
-
-				<div class="mb-3 pics animation all 2">
-					<img class="img-fluid" src="img/aboutme/interest_img05.jpg" alt="Card image cap">
-					<span><p>May 3rd, 2019</p><p>Areum's wedding</p></span>
-				</div>
-
-				<div class="mb-3 pics animation all 1">
-					<img class="img-fluid" src="img/aboutme/interest_img06.png" alt="Card image cap">
-					<span><p>May 27th, 2018</p><p>Dubai, United Arab Emirates</p></span>
-				</div>
-
-				<div class="mb-3 pics animation all 2">
-					<img class="img-fluid" src="img/aboutme/interest_img07.jpg" alt="Card image cap">
-					<span><p>October 21st, 2017</p><p>Busan</p></span>
-				</div>
-
-				<div class="mb-3 pics animation all 2">
-					<img class="img-fluid" src="img/aboutme/interest_img08.jpg" alt="Card image cap">
-					<span><p>Sepember 1st, 2014</p><p>Kota Kinabalum, Malaysia</p></span>
-				</div>
-
-				<div class="mb-3 pics animation all 2">
-					<img class="img-fluid" src="img/aboutme/interest_img09.jpg" alt="Card image cap">
-					<span><p>July 10th, 2013</p><p>Vang Vieng, Laos</p></span>
+				<div class="gallery_box" id="gallery_box04">
+					<div class="gallery_box04" id="box04_pic01">
+						<img src="img/aboutme/interest_img07.jpg" alt="gallery image">
+						<span><p>October 21st, 2017</p><p>Busan</p></span>
+					</div>
+					<div class="gallery_box04" id="box04_pic02">
+						<img src="img/aboutme/interest_img08.jpg" alt="gallery image">
+						<span><p>Sepember 1st, 2014</p><p>Kota Kinabalum, Malaysia</p></span>
+					</div>
+					<div class="gallery_box04" id="box04_pic02">
+						<img src="img/aboutme/interest_img09.jpg" alt="gallery image">
+						<span><p>July 10th, 2013</p><p>Vang Vieng, Laos</p></span>
+					</div>
 				</div>
 			</div>
-			<!-- Grid row -->
 		</div>
 
 		<article id="motive_wrap" class="flex-column">
@@ -1053,7 +1078,7 @@
 									<div class="card-header" id="headingOne">
 										<h5 class="mb-0">
 											<button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-												<i class="fa fa-bell-o main"></i><i class="fa fa-angle-double-right mr-3"></i>This is Winni.
+												<i class="fa fa-drivers-license main"></i><i class="fa fa-angle-double-right mr-3"></i>This is Winni.
 											</button>
 										</h5>
 									</div>
@@ -1067,7 +1092,7 @@
 									<div class="card-header" id="headingTwo">
 										<h5 class="mb-0">
 											<button class="btn btn-link collapsed btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-												<i class="fa fa-book main"></i><i class="fa fa-angle-double-right mr-3"></i>What are your strong points?
+												<i class="fa fa-address-book main"></i><i class="fa fa-angle-double-right mr-3"></i>What are your strong points?
 											</button>
 										</h5>
 									</div>
@@ -1081,7 +1106,7 @@
 									<div class="card-header" id="headingThree">
 										<h5 class="mb-0">
 											<button class="btn btn-link collapsed btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-												<i class="fa fa-user-circle-o main"></i><i class="fa fa-angle-double-right mr-3"></i>Why should we hire you?
+												<i class="fa fa-group main"></i><i class="fa fa-angle-double-right mr-3"></i>Why should we hire you?
 											</button>
 										</h5>
 									</div>

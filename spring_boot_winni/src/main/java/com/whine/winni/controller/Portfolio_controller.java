@@ -34,6 +34,22 @@ public class Portfolio_controller {
 	}
 	
 	
+	//-----------------------------mirroring-------------------------------
+	@RequestMapping(value = "/simplxr")
+	public String get_simplxr() {
+		return "portfolio/mirroring/simplxr";
+	}
+	@RequestMapping(value = "/folkmuseum")
+	public String get_folkmuseum() {
+		return "portfolio/mirroring/folkmuseum";
+	}
+	@RequestMapping(value = "/daelimcare")
+	public String get_daelimcare() {
+		return "portfolio/mirroring/daelimcare";
+	}
+	
+	
+	
 	//------------------------------admin----------------------------------
 	@RequestMapping(value="/admin_page")
 	public String show_admin_page(Model model) {

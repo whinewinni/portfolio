@@ -14,8 +14,6 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<!-- Boot strap -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-		<!--  skill graph -->
-		<link rel="stylesheet" href="https://www.koolchart.com/demo/KoolChart/Assets/Css/KoolChart.css"/>
 		<!-- new skill graph "https://cdn.jsdelivr.net/npm/apexcharts" -->
 		<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 		<!-- Awesome Font -->
@@ -541,26 +539,36 @@
 			#profile #profile_detail p i{
 				margin-right: 2%;
 			}
+			#profile #profile_detail p a{
+				vertical-align: top;
+				text-decoration: none;
+			}
+			#profile #profile_detail p a, #profile #profile_detail p a:active, #profile #profile_detail p a:visited, #profile #profile_detail p a:hover{
+				color: skyblue;
+			}
 			#profile #profile_detail p i.fa{
 				font-size:1.5em
 			}
 			#skill_wrap #skill_graph{
-				margin: 10% auto 0;
+				margin: 5% auto 0;
 				width:70%
 			}
 			#skill_wrap #chart{
 				width: 70%;
 				margin: 0 auto;
 			}
+			#skill_wrap #chart .apexcharts-toolbar {
+				z-index: 1
+			}
 			
 			/*---------------------------------------------------------------------------*/
-			.imageDiv{
+			/* .imageDiv{
 				width:100%;
 				height:100%;
 			}
 			.Kool__Main{
 				margin-top:2%
-			}
+			} */
 			/*---------------------------------------------------------------------------*/
 			#skill_wrap{
 				overflow: hidden;
@@ -844,9 +852,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<!-- Boot strap -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-		<!--  skill graph -->
-		<script src="https://www.koolchart.com/demo/LicenseKey/codepen/KoolChartLicense.js"></script>
-		<script src="https://www.koolchart.com/demo/KoolChart/JS/KoolChart.js"></script>
 		<!--  Kakao map -->
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=975e05e62b559d98a1720c6e79f79e4e"></script>
 		<script>
@@ -1063,7 +1068,7 @@
 			</ol>
 		</nav>
 		
-		<div id="profile" class="container-fluid" style="border: 1px solid red;">
+		<div id="profile" class="container-fluid">
 			<div class="row">
 				<div id="selfie" class="col-sm-4">
 					<img alt="" src="img/aboutme/selfie01.png">
@@ -1080,7 +1085,7 @@
 					</div>
 					<p>
 						<i class="material-icons">&#xe0e1;</i>forhwtkj@gmail.com <br />
-						<i class="material-icons">&#xe31f;</i><a href="#">www.whinnywinni.com</a> <br />
+						<i class="material-icons">&#xe31f;</i><a href="#">http://forhwtkj.cafe24.com</a> <br />
 						<i class="fa">&#xf1fd;</i>June 16, 1989
 					</p>
 					<p>
@@ -1095,7 +1100,6 @@
 		<div id="skill_wrap">
 			<div id="skill_graph" style="height:100%;">
 				<h2>Skills</h2>
-				<!-- <div id="chartHolder" style="height:500px; width:100%;"></div> -->
 			</div>
 			
 			<!-- new skill graph -->
@@ -1308,90 +1312,7 @@
 	</body>
 	<script>
 
-		//var KoolChartLicense = "bcb0f5cbd7ea6287e6562b71e51fc15eec27ab954d6877eb6bcfaf97d7230ed8:6500300b33512044504542373a2d43354e334f3820434c2d56333a3032452e43302d2038503556453a384b3a354c2d20502a523a2d4536202e6d306f2063452e4c743a727461206843633a6c326f306f316b392e302a343a304838";
-	
-
-		//----------------------그래프 지워야함--------------------//
-    	var chartVars = "KoolOnLoadCallFunction=chartReadyHandler";
-	
-	    KoolChart.create("chart1", "chartHolder", chartVars, "100%", "100%");
-	
-	    function chartReadyHandler(id) {
-	      document.getElementById(id).setLayout(layoutStr);
-	      document.getElementById(id).setData(chartData);
-	    }
-	
-	    var layoutStr =
-	      '<KoolChart backgroundColor="#FFFFFF"  borderStyle="none">'
-	       +'<Options>'
-	        +'<Caption text="Always trying to take a top position." fontFamily="Malgun Gothic"/>'
-	       +'</Options>'
-	       +'<NumberFormatter id="numfmt" useThousandsSeparator="true"/>'
-	       +'<Combination2DChart showDataTips="true">'
-	        +'<horizontalAxis>'
-	         +'<CategoryAxis categoryField="Skill" padding="1"/>'
-	        +'</horizontalAxis>'
-	        +'<verticalAxis>'
-	         +'<LinearAxis  formatter="{numfmt}" maximum="100" interval="10"/>'
-	        +'</verticalAxis>'
-	        +'<series>'
-	         +'<VTarget2DResultSeries id="result" columnWidthRatio="0.54" labelPosition="inside" yField="Result" displayName="Result" color="#ffffff" htmlJsFunction="userElementFunc">'
-	          +'<showDataEffect>'
-	           +'<SeriesInterpolate/>'
-	          +'</showDataEffect>'
-	         +'</VTarget2DResultSeries>'
-	         +'<VTarget2DGoalSeries id="goal" columnWidthRatio="0.54" labelPosition="outside" yField="Goal" displayName="Goal" color="#f7921e" htmlJsFunction="userElementFunc">'
-	          +'<showDataEffect>'
-	           +'<SeriesInterpolate/>'
-	          +'</showDataEffect>'
-	          +'<fill>'
-	           +'<SolidColor color="#f7921e"/>'
-	          +'</fill>'
-	         +'</VTarget2DGoalSeries>'
-	        +'</series>'
-	       +'</Combination2DChart>'
-	      +'</KoolChart>';
-	
-	    var chartData =
-	      [{"Skill":"Java","Goal":95,"Result":70},
-	      {"Skill":"PHP","Goal":65,"Result":60},
-	      {"Skill":"C","Goal":90,"Result":40},
-	      {"Skill":"HTML","Goal":90,"Result":95},
-	      {"Skill":"css","Goal":80,"Result":90},
-	      {"Skill":"jQuery","Goal":90,"Result":90},
-	      {"Skill":"Vue","Goal":70,"Result":60},
-	      {"Skill":"Ajax / json","Goal":80,"Result":80},
-	      {"Skill":"JavaScript","Goal":60,"Result":50},
-	      {"Skill":"Oracle","Goal":80,"Result":60}];
-	
-	    function userElementFunc(id, index, data, values){
-	      var src,
-	       goalValue = data.Goal,
-	       resultValue = data.Result;
-	
-	      if(id == "result" && resultValue > goalValue){
-			src = "https://www.koolchart.com/demo/KoolChart/Assets/Images/smile.gif";
-	      }else if(id == "goal" && goalValue - resultValue > 20){
-			src = "https://www.koolchart.com/demo/KoolChart/Assets/Images/cry.gif";
-	      }
-	
-	      if(src){
-	       var div = document.createElement("div");
-	       div.className = "imageDiv";
-	       div.style.background = "url(" + src + ") center/100% 100% no-repeat";
-	
-	       return {
-	        content : div,
-	        width : 43,
-	        height : 43,
-	        leftOffset : -1,
-	        topOffset : -38
-	       };
-	      }
-	     }
-		//----------------------그래프 지워야함--------------------//
 		//----------new graph start------------------------//
-		
 		var options = {
 		      chart: {
 		        height: 500,
@@ -1434,11 +1355,7 @@
 		    );
 
 		    chart.render();
-		
 		//----------new graph end ------------------------//
-
-
-
 
 		var map;
 	    $(window).on("load", function(e){
@@ -1464,8 +1381,6 @@
 	        mapContainer.style.width = '650px';
 	        mapContainer.style.height = '650px'; 
 	    }
-		
-
 	</script>
 </html>
 

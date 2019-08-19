@@ -19,6 +19,10 @@ import com.whine.winni.vo.Contact_vo;
 public class Call_view_Contoller {
 
 	
+	@RequestMapping(value ="/")
+	public String defalut_page() {
+		return "main";
+	}
 	@RequestMapping(value ="/main")
 	public String main_page() {
 		return "main";
