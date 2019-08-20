@@ -499,22 +499,6 @@
 				background-color: #bec2c5;
 				border: none;
 			}
-			/* header button#admin_btn{
-                color: white;
-                float: right;
-				margin-right: 2%
-			}
-			header p{
-				font-size: 6em;
-				color: white;
-				font-weight: 800;
-				position: absolute;
-				bottom: 5%;
-				left:10%
-			}
-			header p span{
-				font-size: 1.5em;
-			} */
 			#admin_modal #admin_pwd{
 			    margin: 1% auto;
 			}
@@ -826,6 +810,9 @@
 			@media all and (max-width:1100px){
 				header #header_bottom #header_picture{
 					padding-left:10px
+				}
+				#renewal #reneal_right #logo_btns button{
+					width: 6rem
 				}
 			}
 			@media all and (max-width:850px){
@@ -1282,7 +1269,7 @@
 						<div class="card-body">
 							<h5 class="card-title">Watch The Font</h5>
 							<p class="card-text">Simple and minimal design created for comfortable user experience.</p>
-							<a href="img/artwork/wtf.pdf" class="btn btn-danger"  target="_blank">PDF Download</a>
+							<a  href="img/artwork/wtf.pdf" class="btn btn-danger"  target="_blank">PDF Download</a>
 						</div>
 					</div>
 				</div>

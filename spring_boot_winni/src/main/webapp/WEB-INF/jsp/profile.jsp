@@ -1257,7 +1257,7 @@
 							</div>
 							<div class="timeline-content">
 								<h3 class="title">Biddingo Korea & get bachelor's degree</h3>
-								<p class="description">Work as a programmer and get bachelor's degree</p>
+								<p class="description">Work as a programmer in Biddingo Korea and get bachelor's degree</p>
 							</div>
 						</div>
 						<div class="timeline">

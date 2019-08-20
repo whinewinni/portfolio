@@ -562,7 +562,7 @@
 			}
 
 			#motive_wrap{
-				margin:30vh auto!important;
+				margin:20vh auto 5vh!important;
 				width:70vw;
 				position: relative;
 			}
@@ -570,7 +570,9 @@
 				font-size: 3rem
 			}
 			#motive_wrap .row .card{
-				margin: 5%
+				margin: 5%;
+				z-index: 1wkrlwjsdp Ehgkwk
+				
 			}
 			#motive_wrap .row div h3{
 				position: relative;
@@ -580,10 +582,10 @@
 			#motive_wrap .row div h3::after{
 				content: "";
 				width:100%;
-				height:5rem;
+				height:6rem;
 				background-color: #85c6f7;
 				position: absolute;
-				bottom: 3%;
+				bottom: -33%;
 				left:3%;
 				display: inline;
 				z-index: -1
@@ -676,7 +678,13 @@
 						transform: rotate(0deg);
 				}
 			}
-			media all and ( max-width:700px ){
+			@media all and ( max-width:1400px ){
+				#motive_wrap .row div h3{
+					margin-top: 10%;
+					font-size: 1.5rem
+				}
+			}
+			@media all and ( max-width:700px ){
 				#motive_wrap .row #motive_text ul li{
 					font-size: 1.5rem
 				}
@@ -692,6 +700,15 @@
 				#motive_wrap .row #motive_text ul li h4{
 					font-size: 3.5rem
 				}
+			}
+			@media all and (max-width:500px){
+				#motive_wrap .row div h3{
+					font-size: 1.4rem
+				}
+				#motive_wrap .row div h3::after{
+					height: 5rem
+				}
+			
 			}
 			
 			
