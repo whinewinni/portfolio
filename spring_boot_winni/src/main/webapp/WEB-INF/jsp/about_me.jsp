@@ -571,7 +571,7 @@
 			}
 			#motive_wrap .row .card{
 				margin: 5%;
-				z-index: 1wkrlwjsdp Ehgkwk
+				z-index: 1
 				
 			}
 			#motive_wrap .row div h3{
