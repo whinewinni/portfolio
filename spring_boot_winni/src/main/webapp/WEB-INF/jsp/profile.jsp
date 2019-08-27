@@ -902,12 +902,12 @@
 
 					//스트룰 다운 && 서브 메뉴 위치보다 높을경우.
 					if(scroll_position < scrollPos && $("#sub_menu").offset().top < scrollPos){
-						$("button#top_button").fadeIn();
+						$("button#top_button:not(:animated)").fadeIn();
 						setTimeout(function(){
-							$("button#top_button").fadeOut();
+							$("button#top_button:not(:animated)").fadeOut();
 						}, 4000);
 					}else{
-						$("button#top_button").fadeOut();
+						$("button#top_button:not(:animated)").fadeOut();
 					}
 					scrollPos = $(this).scrollTop(); // 현 위치값 저장
 				});

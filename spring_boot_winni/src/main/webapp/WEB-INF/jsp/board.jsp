@@ -2002,7 +2002,7 @@
 						}
 					});
 				},  //end check_password
-				/* delete_data: function(seq){
+				delete_data: function(seq){
 					var self=this;
 					$.ajax({
 						//url:"http://localhost:8080/delete_data",
@@ -2016,7 +2016,7 @@
 							console.log(msg);
 						}
 					});
-				},  //end delete_data */ 
+				},  //end delete_data 
 				get_modify_data: function(no){
 					var self=this;
 					console.log("modify seq>>"+no);
@@ -2031,6 +2031,7 @@
 							self.title=data.title;
 							self.content=data.content;
 							console.log(data);
+							self.board_list(self.page);
 						},
 						error:function(){
 							console.log("에놇ㅣㅓㅠㅁㅇ히ㅓㅗㅎ유리ㅓㅇㅎ류");

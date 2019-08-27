@@ -177,9 +177,11 @@
 			}
 			#visual #slider #slider01{
 				background-image:url("http://adventure.lotteworld.com/image/2018/7/201807230523524390.jpg");
+				background-position: center;
 			}
 			#visual #slider #slider02{
 				background-image:url("http://adventure.lotteworld.com/image/2019/2/201902220557216490.jpg");
+				background-position: center;
 			}
 			
 			#visual button{
@@ -597,10 +599,7 @@
 					$("#visual #slider:not(:animated)").animate({marginLeft:0});
 					/* $("#visual ol li").css({backgroundColor: "red"});
 					$("#visual ol li").eq(0).css({backgroundColor: "yellow"}); */
-					
-					$("#visual ol li").removeClass("color_yellow")
-					.eq(0).addClass("color_yellow");
-					
+					$("#visual ol li").removeClass("color_yellow").eq(0).addClass("color_yellow");
 				});  /* not(:animated) 움직이 않을 경우에만 움직이게 함.
 				$("selector:not(:animated)") -> 선택자의 버퍼링이 쌓여 있으면 버퍼링을 다 없애고 ~ 해라 
 				.stop() 움직이고 있는걸 중간에 멈춤 stop은 버퍼링을 없애지 않음  */
@@ -608,8 +607,7 @@
 					$("#visual #slider:not(:animated)").animate({marginLeft:"-100%"});
 					/* $("#visual ol li").css({backgroundColor: "red"});
 					$("#visual ol li").eq(1).css({backgroundColor: "yellow"}); */
-					$("#visual ol li").removeClass("color_yellow")
-					.eq(1).addClass("color_yellow");
+					$("#visual ol li").removeClass("color_yellow").eq(1).addClass("color_yellow");
 				});
 				
 				$("header nav ul#main_menu > li").mouseenter(function() {
@@ -620,7 +618,6 @@
 				
 				$(window).scroll(function() {
 					var scr_position=$(this).scrollTop();
-					/* console.log(scr_position); */
 					if (scr_position >= 2600) {
 						$("#btn_top:not(:animated)").fadeIn();
 					}else {

@@ -697,7 +697,7 @@
             display: inline-block;
          }
          #service_product ul li{
-            width: 23%;
+            width: 22%;
             height:100%;
             border: 1px solid yellow;
             float: left;
@@ -796,7 +796,7 @@
          }
          #guick_btn ul li{
             float: left;
-            margin-right:7%;
+            margin-right:5%;
             text-align: center;
          }
          #guick_btn ul li:first-child{margin-top: -30px}
