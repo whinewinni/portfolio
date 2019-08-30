@@ -46,16 +46,17 @@ public class Call_view_Contoller {
 	
 	@CrossOrigin
 	@RequestMapping(value="/send_contact", method=RequestMethod.POST)
-	public @ResponseBody Map<String, String> insert_contact(Contact_vo vo) {
+	public @ResponseBody String insert_contact(Contact_vo vo) {
 		
 		String content=vo.getContent().replaceAll("(\r\n|\r|\n|\n\r)", "<br/>");
 		vo.setContent(content);
 		vo.setDate(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 		contact_repository.save_contact(vo);
 		
-		Map<String, String> resultMap = new HashMap<>();
-		resultMap.put("Result", "1");
-		return resultMap;  
+		/*Map<String, String> resultMap = new HashMap<>();
+		resultMap.put("Result", "1");*/
+		
+		return "insert_contact()";
 	}
 	
 	

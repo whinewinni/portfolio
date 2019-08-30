@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
@@ -1371,7 +1372,19 @@
 			}
 			@media all and (max-width:850px){
 				#wrap{
-					width: 80vw
+					width: 90vw
+				}
+			}
+			@media all and (max-width:500px){
+				#wrap{
+					width:99vw
+				}
+				table#board_list tbody tr td button:first-child{
+					width:100px;
+					display: inline-block;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
 				}
 			}
 			
@@ -1695,8 +1708,8 @@
 									<i class='fas'  v-bind:id="'demo'+key">&#xf2fe;</i>
 								</button> -->
 								<div v-if="is_active[key]" id="button_group" style="border: 1px solid green" data-toggle="modal">
-									<button @click="get_modify_data(list[key].seq_no)" type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modify_modal">Modify</button>
-									<button @click="delete_data(list[key].seq_no)" type="button" class="btn btn-outline-primary btn-sm">Delete</button>
+									<button @click="get_modify_data(list[key].seq_no)" type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modify_modal" onfocus="this.blur()">Modify</button>
+									<button @click="delete_data(list[key].seq_no)" type="button" class="btn btn-outline-primary btn-sm" onfocus="this.blur()">Delete</button>
 								</div>
 							</div>	
 						</td>
@@ -2005,7 +2018,7 @@
 				delete_data: function(seq){
 					var self=this;
 					$.ajax({
-						//url:"http://localhost:8080/delete_data",
+						url:"http://localhost:8080/delete_data",
 						method:"get",
 						data:{seq_no: seq},
 						success:function(data){

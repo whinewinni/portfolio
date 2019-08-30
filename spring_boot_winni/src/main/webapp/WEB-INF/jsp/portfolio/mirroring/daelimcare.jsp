@@ -154,7 +154,6 @@
          header nav#header_bottom_menu > ol{
             float: right;
             height: 94px;
-            border: 1px solid red;
             padding-left: 10px
          }
          header nav#header_bottom_menu > ol > li{
@@ -163,7 +162,6 @@
             font-weight: 600;
             line-height: 94px;
             color: #222;
-            border: 1px solid blue;
             text-align: center;
             width:8.5rem;
             position: relative;
@@ -176,15 +174,18 @@
              position: absolute;
              z-index: 1
          }
-         header #sub_menu #sub_menu_banner{
-            width:75%;
-            border: 1px solid pink;
-            margin: 0 auto;
-            padding: 20px 0;
-         }
+		header #sub_menu #sub_menu_banner{
+			width:75%;
+			margin: 0 auto;
+			padding: 20px 0;
+		}
+		/* @media all and (max-width:1830px){
+			header #sub_menu #sub_menu_banner img{
+				width:500px
+			}
+		} */
          header nav#header_bottom_menu ol li ul{
             display: none;
-            background-color: #fdfdd1;
             margin-top: 10px;
             position: absolute;
             z-index: 2;

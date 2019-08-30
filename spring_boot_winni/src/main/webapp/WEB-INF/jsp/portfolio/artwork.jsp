@@ -959,9 +959,6 @@
 
 				}
 
-				
-				
-
 				var focus="html, body"; //sub menu button click event
 				$("nav#sub_menu ul.nav li").eq(0).click(function(){
 					$(focus).animate({scrollTop:$("nav#sub_menu").offset().top});

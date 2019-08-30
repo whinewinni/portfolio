@@ -1,23 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="setting_src.jsp" %>
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
 		<meta charset="utf-8">
 		<title>Winni's</title>
 		
-		<!-- Responsive -->
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-		
-		<link rel="stylesheet" href="css/reset.css">
+		<!-- awesome font -->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<!-- Boot strap -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 		<!-- new skill graph "https://cdn.jsdelivr.net/npm/apexcharts" -->
 		<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-		<!-- Awesome Font -->
-		<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 		<style>
 			*{
 				font-size: 16px;
@@ -411,6 +404,15 @@
 				header .hamburglar{
 					right:2%
 				}
+			}
+			
+			header .alert{
+				position: absolute;
+				width: 50vw;
+				top: 30%;
+				left: 50%;
+				transform:translate(-50%, -50%);
+				display: none;
 			}
 			
 			
@@ -848,10 +850,6 @@
 			}
 			
 		</style>
-		<!-- jQuery -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<!-- Boot strap -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<!--  Kakao map -->
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=975e05e62b559d98a1720c6e79f79e4e"></script>
 		<script>
@@ -914,6 +912,24 @@
 
 				$("button#top_button").click(function(){ //top button click, position top
 					$("html, body").animate({scrollTop:0});
+				});
+
+				//send_contact
+				$("#contact_modal .modal-footer button").click(function(){
+					$.ajax({
+						url:"http://localhost:8080/send_contact",
+						method:"post",
+						data:{content:$("#contact_modal .modal-body textarea#send_contact").val()},
+						dataType:"text",
+						success:function(data){
+							//console.log("sccess =" +data);
+							$("header .alert").show();
+							alert("Message sent successfully");
+							$("#contact_modal .modal-body textarea#send_contact").val("");
+						},error:function(e){
+							console.log(e);
+						}
+					});
 				});
  
 				var h2_text = document.querySelector("header #header_bottom h2");
@@ -1040,7 +1056,7 @@
 						
 						<!-- Modal body -->
 						<div class="modal-body">
-							<textarea class="form-control" id="exampleTextarea" rows="7" placeholder="If you have any questions, please don’t hesitate to contact using form below…"></textarea>
+							<textarea class="form-control" id="send_contact" name="send_contact" placeholder="If you have any questions, please don’t hesitate to contact using form below…" rows="7"></textarea>
 						</div>
 						
 						<!-- Modal footer -->
@@ -1052,6 +1068,13 @@
 					</div>
 				</div>
 			</div>
+			
+			<!-- contact message sent -->
+			<div class="alert alert-info alert-dismissible fade show">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>Notice</strong> - Message sent successfully.
+			</div>
+			
 		</header>
 
 		<nav id="sub_menu">
@@ -1098,7 +1121,7 @@
 		</div>
 		
 		<div id="skill_wrap">
-			<div id="skill_graph" style="height:100%;">
+			<div id="skill_graph">
 				<h2>Skills</h2>
 			</div>
 			
