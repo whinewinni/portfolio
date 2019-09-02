@@ -1421,23 +1421,6 @@
 					}
 				}
 
-				//response th, td display
-				/* $(window).on("load", function(){
-					response_th_td();
-				});
-				$(window).resize(function(){
-					response_th_td();
-				});
-				function response_th_td(){
-					var brower=$(window).width();
-					if(brower < 1200){
-						$("table#board_list thead tr th").eq(3).css({display: "none"});
-						$("table#board_list tbody tr td").eq(3).css({display: "none"});
-					}else{
-						$("table#board_list thead tr th").eq(3).css({display: "block"});
-						$("table#board_list tbody tr td").eq(3).css({display: "block"});
-					}
-				} */
 
 				$(document).ready(function() {
 					$("table#board_list tbody tr td > button").click(function(){
