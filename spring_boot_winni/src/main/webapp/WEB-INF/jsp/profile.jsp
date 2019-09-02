@@ -922,7 +922,6 @@
 						data:{content:$("#contact_modal .modal-body textarea#send_contact").val()},
 						dataType:"text",
 						success:function(data){
-							//console.log("sccess =" +data);
 							/* $("header .alert").show(); */
 							alert("Message sent successfully");
 							$("#contact_modal .modal-body textarea#send_contact").val("");
@@ -1035,7 +1034,7 @@
 			
 			<div id="header_bottom">
 				<div id="header_text">
-					<h2 contenteditable data-heading="whinewinni">whinewinni</h2>
+					<h2 data-heading="whinewinni">whinewinni</h2>
 				</div>
 				<div id="scroll_side">
 					<span id="scroll">SCROLL</span>
