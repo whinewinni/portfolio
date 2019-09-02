@@ -1491,6 +1491,15 @@
 			function collapse_hide(){
 				$(".collapse").collapse("hide");
 			}
+
+
+
+			function check_null(id, password, title, content){
+				if( id==null || password==null || title==null || content==null ){
+					alert("fill the empty place");
+					return false;
+				}
+			}
 		</script>
 	</head>
 	<body>
@@ -1792,7 +1801,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text">Password</span>
 								</div>
-								<input v-model="password" type="text" class="form-control input-sm" placeholder="password">
+								<input v-model="password" type="password" class="form-control input-sm" placeholder="password">
 							</div>
 							
 							<div class="input-group mb-3">
@@ -1829,7 +1838,7 @@
 						
 						<!-- Modal body -->
 						<div class="modal-body">
-							<input v-model="check_pwd" type="text" class="form-control input-sm" placeholder="what is your password?">
+							<input v-model="check_pwd" type="password" class="form-control input-sm" placeholder="what is your password?">
 						</div>
 						
 						<!-- Modal footer -->
@@ -1863,7 +1872,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text">Password</span>
 								</div>
-								<input v-model="password" type="text" class="form-control input-sm" placeholder="password">
+								<input v-model="password" type="password" class="form-control input-sm" placeholder="password">
 							</div>
 							
 							<div class="input-group mb-3">
@@ -1958,6 +1967,7 @@
 				}, //end  board_list
 				insert_content: function(){
 					var self=this;
+					check_null(this.id, this.password, this.title, this.content);
 					$.ajax({
 						url:"http://localhost:8080/save",
 						method:"post",
@@ -2074,9 +2084,6 @@
 							console.log("sdfJKhgxdbfsljzsdfgbljfsbdjhbsdf,hjl");
 						}
 					});
-
-					
-					
 				},
 				update_hit:function(num){
 					var self=this;
@@ -2091,6 +2098,12 @@
 				}//end update_hit
 			} //end methods
 		});
+
+
+
+
+
+		
 	</script>
 </html>
 

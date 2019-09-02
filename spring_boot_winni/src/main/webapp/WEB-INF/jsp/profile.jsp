@@ -922,10 +922,9 @@
 						data:{content:$("#contact_modal .modal-body textarea#send_contact").val()},
 						dataType:"text",
 						success:function(data){
-							//console.log("sccess =" +data);
 							$("header .alert").show();
 							alert("Message sent successfully");
-							$("#contact_modal .modal-body textarea#send_contact").val("");
+							//$("#contact_modal .modal-body textarea#send_contact").val("");
 						},error:function(e){
 							console.log(e);
 						}
@@ -1035,7 +1034,7 @@
 			
 			<div id="header_bottom">
 				<div id="header_text">
-					<h2 contenteditable data-heading="whinewinni">whinewinni</h2>
+					<h2 data-heading="whinewinni">whinewinni</h2>
 				</div>
 				<div id="scroll_side">
 					<span id="scroll">SCROLL</span>
@@ -1070,10 +1069,10 @@
 			</div>
 			
 			<!-- contact message sent -->
-			<div class="alert alert-info alert-dismissible fade show">
+			<!-- <div class="alert alert-info alert-dismissible fade show">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
 				<strong>Notice</strong> - Message sent successfully.
-			</div>
+			</div> -->
 			
 		</header>
 
