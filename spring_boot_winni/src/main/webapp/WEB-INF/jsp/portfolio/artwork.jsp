@@ -549,6 +549,7 @@
 				height: 30px;
 				border-radius: 50%;
 				background-color: red;
+				z-index: 1
 			}
 			
 			#show_detail_img{
@@ -900,13 +901,11 @@
 
 					//스트룰 다운 && 서브 메뉴 위치보다 높을경우.
 					if(scroll_position < scrollPos && $("#sub_menu").offset().top < scrollPos){
-						console.log("up");
 						$("button#top_button").fadeIn();
 						setTimeout(function(){
 							$("button#top_button").fadeOut();
 						}, 4000);
 					}else{
-						console.log("down");
 						$("button#top_button").fadeOut();
 					}
 					scrollPos = $(this).scrollTop(); // 현 위치값 저장

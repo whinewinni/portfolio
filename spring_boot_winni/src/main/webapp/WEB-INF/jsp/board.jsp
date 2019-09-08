@@ -1436,11 +1436,6 @@
 						$("header nav").removeClass("stuck_menu");
 					}
 					
-					//스크롤 다운하면 아래로 내려가는 모션
-					/* if( 10 <=scroll_position && scroll_position >=100){
-						$("html, body").animate({scrollTop:$("#wrap").offset().top});
-					} */
-					
 					//스트룰 다운 && 100보다 높을경우.
 					if(scroll_position < scrollPos && 100 < scrollPos){
 						$("button#top_button:not(:animated)").fadeIn();
@@ -1474,12 +1469,12 @@
 			function collapse_hide(){
 				$(".collapse").collapse("hide");
 			}
-
-
-
+			//check null value
 			function check_null(id, password, title, content){
-				if( id==null || password==null || title==null || content==null ){
-					alert("fill the empty place");
+				if( id=="" || password=="" || title=="" || content=="" ){
+					alert("fill the empty field");
+					console.log("check_null()");
+					event.preventDefalut();
 					return false;
 				}
 			}
@@ -1909,10 +1904,10 @@
 			mounted:function(){
 				this.board_list(); 
 
-				var map = new Map();
+				/* var map = new Map();
 				map.set("a", "bbbbbbbbbbbbbbbb");
 				map.set("b", "cccccccccccccccccc");
-				console.log(map.get("a"));
+				console.log(map.get("a")); */
 			},
 			methods:{
 				board_list : function(page){
@@ -1981,10 +1976,6 @@
 				},
 				check_password : function(){
 					var self=this;
-					/* console.log(check_id);
-					console.log(check_seq);
-					console.log("===> " + check_key);
-					console.log(this.check_pwd); */
 
 					$.ajax({
 						url:"http://localhost:8080/check_pwd",
@@ -2040,7 +2031,7 @@
 							self.board_list(self.page);
 						},
 						error:function(){
-							console.log("에놇ㅣㅓㅠㅁㅇ히ㅓㅗㅎ유리ㅓㅇㅎ류");
+							console.log("get_modify_data error");
 						}
 					});
 				},

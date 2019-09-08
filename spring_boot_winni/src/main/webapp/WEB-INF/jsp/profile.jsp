@@ -922,7 +922,6 @@
 						data:{content:$("#contact_modal .modal-body textarea#send_contact").val()},
 						dataType:"text",
 						success:function(data){
-							/* $("header .alert").show(); */
 							alert("Message sent successfully");
 							$("#contact_modal .modal-body textarea#send_contact").val("");
 						},error:function(e){
@@ -1066,14 +1065,7 @@
 					  
 					</div>
 				</div>
-			</div>
-			
-			<!-- contact message sent -->
-			<!-- <div class="alert alert-info alert-dismissible fade show">
-				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				<strong>Notice</strong> - Message sent successfully.
-			</div> -->
-			
+			</div>			
 		</header>
 
 		<nav id="sub_menu">

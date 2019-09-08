@@ -90,6 +90,20 @@
 						$("#list #title button").html("<i class='fas'>&#xf0a8;</i> Back to Portfolio page");
 					}
 				}
+
+				//file name input에 표시
+				var file_target=$("#insert_modal .modal-body .input-group label input");
+				file_target.on("change", function(){
+
+					if(window.FileReader){
+						var filename=$(this)[0].files[0].name;
+					}else{
+						var filename=$(this).val().split("/").pop().split("\\").pop();
+					}
+					
+					console.log($(this).parent().parent().siblings().attr("class"));
+					$(this).parent().parent().siblings().val(filename);
+				});
 			});
 		</script>
 	</head>
@@ -148,8 +162,9 @@
 											<input name="thumbnail_file" type="file" style="display: none;" multiple>
 										</span>
 									</label>
-									<input type="text" class="form-control form-control-sm" readonly>
+									<input id="filename" type="text" class="form-control form-control-sm" readonly>
 								</div>
+								<!-- ------------------------------------------------------------------------------------------------------------ -->
     							
     							<label>Image</label>
     							<!-- <input type="file" class="form-control form-control-file" id="imgfile" name="imgfile"> -->
